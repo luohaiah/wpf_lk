@@ -112,47 +112,47 @@ namespace Main
                 else if (Constant.height.Equals(ds.Tables[0].Rows[i][0]))
                 {
                     dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.height), Width = 60 });
-                    dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.height_score), Width = 50 });
+                    //dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.height_score), Width = 50 });
                 }
                 else if (Constant.weight.Equals(ds.Tables[0].Rows[i][0]))
                 {
                     dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.weight), Width = 60 });
-                    dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.weight_score), Width = 50 });
+                    // dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.weight_score), Width = 50 });
                 }
                 else if (Constant.jump.Equals(ds.Tables[0].Rows[i][0]))
                 {
                     dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.jump), Width = 60 });
-                    dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.jump_score), Width = 50 });
+                    //   dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.jump_score), Width = 50 });
                 }
                 else if (Constant.vc.Equals(ds.Tables[0].Rows[i][0]))
                 {
                     dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.vc), Width = 60 });
-                    dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.vc_score), Width = 50 });
+                    // dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.vc_score), Width = 50 });
                 }
                 else if (Constant.tiqianqu.Equals(ds.Tables[0].Rows[i][0]))
                 {
                     dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.tiqianqu), Width = 70 });
-                    dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.tiqianqu_score), Width = 50 });
+                    //  dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.tiqianqu_score), Width = 50 });
                 }
                 else if (Constant.sitUp.Equals(ds.Tables[0].Rows[i][0]))
                 {
                     dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.sitUp), Width = 60 });
-                    dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.sitUp_score), Width = 50 });
+                    //  dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.sitUp_score), Width = 50 });
                 }
                 else if (Constant.pushUp.Equals(ds.Tables[0].Rows[i][0]))
                 {
                     dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.pushUp), Width = 60 });
-                    dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.pushUp_score), Width = 50 });
+                    // dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.pushUp_score), Width = 50 });
                 }
                 else if (Constant.pullUp.Equals(ds.Tables[0].Rows[i][0]))
                 {
                     dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.pullUp), Width = 60 });
-                    dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.pullUp_score), Width = 50 });
+                    // dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.pullUp_score), Width = 50 });
                 }
                 else if (Constant.Shuttlerun.Equals(ds.Tables[0].Rows[i][0]))
                 {
                     dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.Shuttlerun), Width = 60 });
-                    dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.Shuttlerun_score), Width = 50 });
+                    //  dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.Shuttlerun_score), Width = 50 });
                 }
             }
             if (is_init)
@@ -750,11 +750,16 @@ namespace Main
         private void close(object sender, RoutedEventArgs e)
         {
             antmanage.shutdown();
-            dao.closeDb();
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += bw_DoWork;
             bw.RunWorkerAsync();
 
+        }
+
+        private void window_Closed(object sender, EventArgs e)
+        {
+            showHideBaseInfo("1");
+            dao.closeDb();
         }
     }
 

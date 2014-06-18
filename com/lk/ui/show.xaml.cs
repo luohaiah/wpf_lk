@@ -89,47 +89,47 @@ namespace Main
                 if ("身高".Equals(dt_right.Rows[i][0]))
                 {
                     window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = dt_right.Rows[i][0], Binding = new Binding("身高"), Width = 60 });
-                    window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("身高得分"), Width = 50 });
+                    //window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("身高得分"), Width = 50 });
                 }
                 if ("体重".Equals(dt_right.Rows[i][0]))
                 {
                     window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = dt_right.Rows[i][0], Binding = new Binding("体重"), Width = 60 });
-                    window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("体重得分"), Width = 50 });
+                    // window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("体重得分"), Width = 50 });
                 }
                 if ("立定跳远".Equals(dt_right.Rows[i][0]))
                 {
                     window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = dt_right.Rows[i][0], Binding = new Binding("立定跳远"), Width = 60 });
-                    window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("立定跳远得分"), Width = 50 });
+                    //window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("立定跳远得分"), Width = 50 });
                 }
                 if ("俯卧撑".Equals(dt_right.Rows[i][0]))
                 {
                     window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = dt_right.Rows[i][0], Binding = new Binding("俯卧撑"), Width = 60 });
-                    window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("俯卧撑得分"), Width = 50 });
+                    // window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("俯卧撑得分"), Width = 50 });
                 }
                 if ("仰卧起坐".Equals(dt_right.Rows[i][0]))
                 {
                     window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = dt_right.Rows[i][0], Binding = new Binding("仰卧起坐"), Width = 60 });
-                    window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("仰卧起坐得分"), Width = 50 });
+                    // window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("仰卧起坐得分"), Width = 50 });
                 }
                 if ("引体向上".Equals(dt_right.Rows[i][0]))
                 {
                     window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = dt_right.Rows[i][0], Binding = new Binding("引体向上"), Width = 60 });
-                    window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("引体向上得分"), Width = 50 });
+                    //window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("引体向上得分"), Width = 50 });
                 }
                 if ("肺活量".Equals(dt_right.Rows[i][0]))
                 {
                     window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = dt_right.Rows[i][0], Binding = new Binding("肺活量"), Width = 60 });
-                    window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("肺活量得分"), Width = 50 });
+                    //window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("肺活量得分"), Width = 50 });
                 }
                 if ("折返跑".Equals(dt_right.Rows[i][0]))
                 {
                     window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = dt_right.Rows[i][0], Binding = new Binding("折返跑"), Width = 60 });
-                    window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("折返跑得分"), Width = 50 });
+                    // window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("折返跑得分"), Width = 50 });
                 }
                 if ("坐位体前屈".Equals(dt_right.Rows[i][0]))
                 {
                     window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = dt_right.Rows[i][0], Binding = new Binding("坐位体前屈"), Width = 70 });
-                    window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("坐位体前屈得分"), Width = 50 });
+                    //window.dataGrid.Columns.Add(new DataGridTextColumn() { Header = "评分", Binding = new Binding("坐位体前屈得分"), Width = 50 });
                 }
             }
             Close();
@@ -145,6 +145,11 @@ namespace Main
                 dt_left.Rows.Add(dr[0] as string);
                 dt_right.Rows.RemoveAt(Lv_right.SelectedIndex);
             }
+        }
+
+        private void btn_cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

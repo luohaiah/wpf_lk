@@ -237,15 +237,20 @@
     <Resource Include="resource\image\bg_jump.png" />
     <Resource Include="resource\image\bg_left.png" />
     <Resource Include="resource\image\bg_left_item.png" />
+    <Resource Include="resource\image\bg_listView.png" />
     <Resource Include="resource\image\bg_num.png" />
     <Resource Include="resource\image\bg_page1.png" />
     <Resource Include="resource\image\bg_page2.png" />
     <Resource Include="resource\image\bg_page3.png" />
     <Resource Include="resource\image\bg_search1.png" />
     <Resource Include="resource\image\bg_search2.png" />
+    <Resource Include="resource\image\bg_showhide.png" />
     <Resource Include="resource\image\Bg_top.png" />
     <Resource Include="resource\image\bg_top1.png" />
     <Resource Include="resource\image\bg_v_sview.png" />
+    <Resource Include="resource\image\btn_bottom1.png" />
+    <Resource Include="resource\image\btn_bottom2.png" />
+    <Resource Include="resource\image\btn_bottom3.png" />
     <Resource Include="resource\image\btn_caiji1.png" />
     <Resource Include="resource\image\btn_caiji2.png" />
     <Resource Include="resource\image\btn_caiji3.png" />
@@ -263,12 +268,18 @@
     <Resource Include="resource\image\btn_import1.png" />
     <Resource Include="resource\image\btn_import2.png" />
     <Resource Include="resource\image\btn_import3.png" />
+    <Resource Include="resource\image\btn_left1.png" />
+    <Resource Include="resource\image\btn_left2.png" />
+    <Resource Include="resource\image\btn_left3.png" />
     <Resource Include="resource\image\btn_login1.png" />
     <Resource Include="resource\image\btn_login2.png" />
     <Resource Include="resource\image\btn_login3.png" />
     <Resource Include="resource\image\btn_min1.png" />
     <Resource Include="resource\image\btn_min2.png" />
     <Resource Include="resource\image\btn_min3.png" />
+    <Resource Include="resource\image\btn_right1.png" />
+    <Resource Include="resource\image\btn_right2.png" />
+    <Resource Include="resource\image\btn_right3.png" />
     <Resource Include="resource\image\btn_search.png" />
     <Resource Include="resource\image\btn_search_right1.png" />
     <Resource Include="resource\image\btn_search_right2.png" />
@@ -288,6 +299,8 @@
     <Resource Include="resource\image\image_password.png" />
     <Resource Include="resource\image\image_user.png" />
     <Resource Include="resource\image\line_left.png" />
+    <Resource Include="resource\image\listView_bottom.png" />
+    <Resource Include="resource\image\listView_top.png" />
     <Resource Include="resource\image\v_sview.png" />
   </ItemGroup>
   <ItemGroup>
