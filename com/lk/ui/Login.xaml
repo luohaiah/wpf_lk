@@ -1,0 +1,286 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:BeiLiNu.Ui.Controls.WPF.Controls;assembly=BeiLiNu.Ui.Controls" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="Main.com.lk.ui.Loginxaml"
+        Title="Loginxaml" Height="334" Width="474" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="{x:Null}">
+    <Window.Resources>
+        <Storyboard x:Key="OnLoaded1" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnLoaded3" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnLoaded5" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnLoaded7" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image6">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnLoaded9" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image8">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnLoaded11" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image10">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnLoaded2" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnLoaded4" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnLoaded6" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image5">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnLoaded8" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image7">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnLoaded10" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="image9">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-10"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <LinearGradientBrush x:Key="TextBoxBorder" StartPoint="0,0" MappingMode="Absolute" EndPoint="0,20">
+            <GradientStop Color="#ABADB3" Offset="0.05"/>
+            <GradientStop Color="#E2E3EA" Offset="0.07"/>
+            <GradientStop Color="#E3E9EF" Offset="1"/>
+        </LinearGradientBrush>
+        <Style x:Key="PasswordBoxStyle1" TargetType="{x:Type PasswordBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="PasswordChar" Value="*"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                        <Themes:ListBoxChrome x:Name="Bd"  SnapsToDevicePixels="true" Background="{x:Null}">
+                            <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                <ScrollViewer.Background>
+                                    <ImageBrush ImageSource="/pcClient;component/resource/image/bg_edit.png"/>
+                                </ScrollViewer.Background>
+
+                            </ScrollViewer>
+                        </Themes:ListBoxChrome>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="#FE2E85B8"/>
+                                <Setter Property="Background" TargetName="PART_ContentHost" Value="#FFFFFF"/>
+
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <RoutedUICommand x:Key="login" Text="login"></RoutedUICommand>
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Gesture="Enter" Command="{StaticResource login}"></KeyBinding>
+    </Window.InputBindings>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource login}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed"></CommandBinding>
+    </Window.CommandBindings>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard x:Name="OnLoaded1_BeginStoryboard" Storyboard="{StaticResource OnLoaded1}"/>
+            <BeginStoryboard x:Name="OnLoaded2_BeginStoryboard" Storyboard="{StaticResource OnLoaded2}"/>
+            <BeginStoryboard x:Name="OnLoaded3_BeginStoryboard" Storyboard="{StaticResource OnLoaded3}"/>
+            <BeginStoryboard x:Name="OnLoaded4_BeginStoryboard" Storyboard="{StaticResource OnLoaded4}"/>
+            <BeginStoryboard x:Name="OnLoaded5_BeginStoryboard" Storyboard="{StaticResource OnLoaded5}"/>
+            <BeginStoryboard x:Name="OnLoaded6_BeginStoryboard" Storyboard="{StaticResource OnLoaded6}"/>
+            <BeginStoryboard x:Name="OnLoaded7_BeginStoryboard" Storyboard="{StaticResource OnLoaded7}"/>
+            <BeginStoryboard x:Name="OnLoaded8_BeginStoryboard" Storyboard="{StaticResource OnLoaded8}"/>
+            <BeginStoryboard x:Name="OnLoaded9_BeginStoryboard" Storyboard="{StaticResource OnLoaded9}"/>
+            <BeginStoryboard x:Name="OnLoaded10_BeginStoryboard" Storyboard="{StaticResource OnLoaded10}"/>
+            <BeginStoryboard x:Name="OnLoaded11_BeginStoryboard" Storyboard="{StaticResource OnLoaded11}"/>
+
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Margin="3,3,3,3">
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#FF6A6767"/>
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="253*"/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Left" Height="76.232" VerticalAlignment="Top" Width="468" Grid.RowSpan="2" >
+    		<Grid.Background>
+    			<ImageBrush ImageSource="/pcClient;component/resource/image/bg_top1.png"/>
+    		</Grid.Background>
+    		<Label Height="76" Content="{StaticResource app_name}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="32" Foreground="#FF28B081" Margin="70,0.116,68,0.116"/>
+    		<Controls:XButton   Height="22" RenderTransformOrigin="0.54,-0.135" VerticalAlignment="Bottom" NormalImgae="/pcClient;component/resource/image/btn_min1.png" PressedImage="/pcClient;component/resource/image/btn_min2.png" MouseOverImage="/pcClient;component/resource/image/btn_min3.png" Click="window_min" Width="Auto" Margin="400,0,34,54"/>
+    		<Controls:XButton   Height="22" RenderTransformOrigin="0.54,-0.135" VerticalAlignment="Top" NormalImgae="/pcClient;component/resource/image/btn_close1.png" PressedImage="/pcClient;component/resource/image/btn_close2.png" MouseOverImage="/pcClient;component/resource/image/btn_close3.png" Click="Window_close" Width="Auto" Margin="434,0,0,0"/>
+    	</Grid>
+        <Grid HorizontalAlignment="Left" Height="254" Margin="0,0.771,0,-1.771" VerticalAlignment="Top" Width="468" Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/pcClient;component/resource/image/bg_bottom1.png"/>
+            </Grid.Background>
+            <Label Content="{StaticResource username}" HorizontalAlignment="Left" Height="33" Margin="63,57.229,0,0" VerticalAlignment="Top" Width="82.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.545,1.815" FontSize="18" Foreground="#FF35A076"/>
+            <Label Content="{StaticResource password}" HorizontalAlignment="Left" Height="36" Margin="62,105.561,0,0" VerticalAlignment="Top" Width="82.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" RenderTransformOrigin="0.782,0.37" Foreground="#FF35A076"/>
+            <Controls:XTextBox HorizontalAlignment="Left" Height="38" Margin="160,57.229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" RenderTransformOrigin="0.467,2.222" NormalImgae="/pcClient;component/resource/image/bg_edit.png" NineGrid="5" VerticalContentAlignment="Center" FontSize="18.667" x:Name="Tb_user" Foreground="#626262" MaxLength="19"/>
+            <PasswordBox HorizontalAlignment="Left" Height="40" Margin="157.5,105.561,0,0"  VerticalAlignment="Top" Width="230" RenderTransformOrigin="0.467,2.222"  VerticalContentAlignment="Center" FontSize="18.667" x:Name="Tb_pw" Foreground="#626262" BorderBrush="{x:Null}" BorderThickness="0" Style="{DynamicResource PasswordBoxStyle1}" MaxLength="22"/>
+            <Controls:XButton Content="{StaticResource exit}" HorizontalAlignment="Left" Height="35" Margin="75,160,0,0" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18.667" RenderTransformOrigin="0.541,-0.114" Click="Window_close" NormalImgae="/pcClient;component/resource/image/btn_login1.png" MouseOverImage="/pcClient;component/resource/image/btn_login3.png" PressedImage="/pcClient;component/resource/image/btn_login2.png" NineGrid="0" Foreground="#FF6C6C6C"/>
+            <Controls:XButton Content="{StaticResource login_app}" HorizontalAlignment="Left" Height="35" Margin="275.5,160,0,0" VerticalAlignment="Top" Width="111" FontSize="18.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" NormalImgae="/pcClient;component/resource/image/btn_login1.png" PressedImage="/pcClient;component/resource/image/btn_login2.png" MouseOverImage="/pcClient;component/resource/image/btn_login3.png" NineGrid="0" Click="Btn_login" Foreground="#FF6C6C6C"/>
+            <StackPanel HorizontalAlignment="Left" Height="52" Margin="0,202,0,0" VerticalAlignment="Top" Width="468" Orientation="Horizontal">
+                <Image x:Name="image" Source="/pcClient;component/resource/image/image_cao1.png" RenderTransformOrigin="0.2,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image x:Name="image1" Source="/pcClient;component/resource/image/image_cao2.png" RenderTransformOrigin="0.9,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Source="/pcClient;component/resource/image/image_cao3.png" x:Name="image2" RenderTransformOrigin="0.1,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Source="/pcClient;component/resource/image/image_cao4.png" x:Name="image3" RenderTransformOrigin="0.2,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Source="/pcClient;component/resource/image/image_cao1.png" x:Name="image4" RenderTransformOrigin="0.8,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Source="/pcClient;component/resource/image/image_cao2.png" x:Name="image5" RenderTransformOrigin="0.8,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Source="/pcClient;component/resource/image/image_cao3.png" x:Name="image6" RenderTransformOrigin="0.1,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Source="/pcClient;component/resource/image/image_cao4.png" x:Name="image7" RenderTransformOrigin="0.8,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Source="/pcClient;component/resource/image/image_cao1.png" x:Name="image8" RenderTransformOrigin="0.2,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Source="/pcClient;component/resource/image/image_cao2.png" x:Name="image9" RenderTransformOrigin="0.8,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Source="/pcClient;component/resource/image/image_cao3.png" x:Name="image10" RenderTransformOrigin="0.2,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>
