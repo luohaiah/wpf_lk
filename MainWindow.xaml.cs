@@ -634,7 +634,7 @@ namespace Main
 
         void bw_DoWork(object sender, DoWorkEventArgs e)
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(1500);
             Dispatcher.Invoke(new Action(delegate
             {
                 this.Close();
@@ -749,9 +749,7 @@ namespace Main
 
         private void close(object sender, RoutedEventArgs e)
         {
-            //antmanage.channel_general.closeChannel();
-            //antmanage.channel_share.closeChannel();
-            //antmanage.shutdown();
+            antmanage.shutdown();
             dao.closeDb();
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += bw_DoWork;
