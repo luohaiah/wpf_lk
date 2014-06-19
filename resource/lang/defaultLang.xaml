@@ -51,4 +51,17 @@
     <my:String x:Key="di">【第</my:String>
     <my:String x:Key="ye">页】</my:String>
     <my:String x:Key="gong">【共</my:String>
+    <my:String x:Key="no_choose">未选择</my:String>
+    <my:String x:Key="choose">已选择</my:String>
+    <my:String x:Key="cancel">取消</my:String>
+    <my:String x:Key="sure">确定</my:String>
+    <my:String x:Key="height">身高</my:String>
+    <my:String x:Key="weight">体重</my:String>
+    <my:String x:Key="jump">立定跳远</my:String>
+    <my:String x:Key="pushup">俯卧撑</my:String>
+    <my:String x:Key="situp">仰卧起坐</my:String>
+    <my:String x:Key="pullup">引体向上</my:String>
+    <my:String x:Key="vc">肺活量</my:String>
+    <my:String x:Key="shuttleRun">折返跑</my:String>
+    <my:String x:Key="tiqianqu">坐位体前屈</my:String>
 </ResourceDictionary>

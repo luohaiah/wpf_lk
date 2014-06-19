@@ -156,7 +156,7 @@
 			<ListView.View>
                 <GridView  >
 					<GridViewColumn DisplayMemberBinding="{Binding projectName}">
-						<GridViewColumnHeader Width="155" Content="未选择" Height="37" Background="{x:Null}" Style="{DynamicResource GridViewColumnHeaderStyle1}" BorderBrush="{x:Null}" FontSize="16" Foreground="#FF626262"/>
+						<GridViewColumnHeader Width="155" Content="{StaticResource no_choose}" Height="37" Background="{x:Null}" Style="{DynamicResource GridViewColumnHeaderStyle1}" BorderBrush="{x:Null}" FontSize="16" Foreground="#FF626262"/>
 					</GridViewColumn>
 				</GridView>
 			</ListView.View>
@@ -166,15 +166,14 @@
 			<ListView.View>
 				<GridView>
 					<GridViewColumn DisplayMemberBinding="{Binding ShowProjectName}">
-						<GridViewColumnHeader Width="155" Content="已选择" Height="37" Style="{DynamicResource GridViewColumnHeaderStyle1}" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF626262" FontSize="16" />
+						<GridViewColumnHeader Width="155" Content="{StaticResource choose}" Height="37" Style="{DynamicResource GridViewColumnHeaderStyle1}" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF626262" FontSize="16" />
 					</GridViewColumn>
 				</GridView>
 			</ListView.View>
 		</ListView>
 		<super:XButton  HorizontalAlignment="Left" Margin="279,124,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click" Height="40" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_right1.png" MouseOverImage="/pcClient;component/resource/image/btn_right2.png" PressedImage="/pcClient;component/resource/image/btn_right3.png" RenderTransformOrigin="0.449,-0.159"/>
 		<super:XButton  HorizontalAlignment="Left" Height="40" Margin="279,237,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.444,-0.6" Click="Button_Click_2" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_left1.png" MouseOverImage="/pcClient;component/resource/image/btn_left2.png" PressedImage="/pcClient;component/resource/image/btn_left3.png"/>
-		<super:XButton Content="确定" HorizontalAlignment="Left" Height="54" Margin="409,365,0,0" VerticalAlignment="Top" Width="188" Click="Button_Click_1" RenderTransformOrigin="1.794,0.457" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_bottom1.png" MouseOverImage="/pcClient;component/resource/image/btn_bottom3.png" PressedImage="/pcClient;component/resource/image/btn_bottom2.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF626262" FontSize="21.333"/>
-		<super:XButton Content="取消" HorizontalAlignment="Left" Height="54" Margin="61,365,0,0" VerticalAlignment="Top" Width="188"  RenderTransformOrigin="1.794,0.457" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_bottom1.png" MouseOverImage="/pcClient;component/resource/image/btn_bottom3.png" PressedImage="/pcClient;component/resource/image/btn_bottom2.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btn_cancel" Foreground="#FF626262" FontSize="21.333"/>
-
+		<super:XButton Content="{StaticResource sure}" HorizontalAlignment="Left" Height="54" Margin="409,365,0,0" VerticalAlignment="Top" Width="188" Click="Button_Click_1" RenderTransformOrigin="1.794,0.457" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_bottom1.png" MouseOverImage="/pcClient;component/resource/image/btn_bottom3.png" PressedImage="/pcClient;component/resource/image/btn_bottom2.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF626262" FontSize="21.333"/>
+		<super:XButton Content="{StaticResource cancel}" HorizontalAlignment="Left" Height="54" Margin="61,365,0,0" VerticalAlignment="Top" Width="188"  RenderTransformOrigin="1.794,0.457" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_bottom1.png" MouseOverImage="/pcClient;component/resource/image/btn_bottom3.png" PressedImage="/pcClient;component/resource/image/btn_bottom2.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btn_cancel" Foreground="#FF626262" FontSize="21.333"/>
 	</Grid>
 </Window>
