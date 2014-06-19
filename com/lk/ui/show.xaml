@@ -3,177 +3,177 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:super="clr-namespace:BeiLiNu.Ui.Controls.WPF.Controls;assembly=BeiLiNu.Ui.Controls"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="Main.Show"
-        Height="458" Width="647" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Height="421" Width="542" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True">
-	<Window.Resources>
-		<SolidColorBrush x:Key="ListBorder" Color="#828790"/>
-		<Style x:Key="{x:Static GridView.GridViewScrollViewerStyleKey}" TargetType="{x:Type ScrollViewer}">
-			<Setter Property="Focusable" Value="false"/>
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type ScrollViewer}">
-						<Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*"/>
-								<ColumnDefinition Width="Auto"/>
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="*"/>
-								<RowDefinition Height="Auto"/>
-							</Grid.RowDefinitions>
-							<DockPanel Margin="{TemplateBinding Padding}">
-								<ScrollViewer DockPanel.Dock="Top" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
-									<GridViewHeaderRowPresenter AllowsColumnReorder="{Binding TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContainerStyle="{Binding TemplatedParent.View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderToolTip="{Binding TemplatedParent.View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderStringFormat="{Binding TemplatedParent.View.ColumnHeaderStringFormat, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContextMenu="{Binding TemplatedParent.View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplate="{Binding TemplatedParent.View.ColumnHeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}" Columns="{Binding TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplateSelector="{Binding TemplatedParent.View.ColumnHeaderTemplateSelector, RelativeSource={RelativeSource TemplatedParent}}" Margin="2,0,2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-								</ScrollViewer>
-								<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" KeyboardNavigation.DirectionalNavigation="Local" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-							</DockPanel>
-							<ScrollBar x:Name="PART_HorizontalScrollBar" Cursor="Arrow" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0.0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>
-							<super:XScrollBar x:Name="PART_VerticalScrollBar" Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0.0" Orientation="Vertical" Visibility="Visible" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" Height="auto" Width="10" Margin="0,40,0,0"/>
-							<DockPanel Background="{Binding Background, ElementName=PART_VerticalScrollBar}" Grid.Column="1" LastChildFill="false" Grid.Row="1">
-								<Rectangle DockPanel.Dock="Left" Fill="White" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Width="1"/>
-								<Rectangle DockPanel.Dock="Top" Fill="White" Height="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
-							</DockPanel>
-						</Grid>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-		<Style x:Key="ListViewStyle1" TargetType="{x:Type ListView}">
-			<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
-			
-			<Setter Property="BorderThickness" Value="1"/>
-			<Setter Property="Foreground" Value="#626262"/>
-			<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
-			<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-			<Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
-			<Setter Property="ScrollViewer.PanningMode" Value="Both"/>
-			<Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-			<Setter Property="VerticalContentAlignment" Value="Center"/>
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type ListView}">
-						<Themes:ListBoxChrome x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"  SnapsToDevicePixels="true">
-							<ScrollViewer Padding="{TemplateBinding Padding}" Style="{DynamicResource {x:Static GridView.GridViewScrollViewerStyleKey}}" HorizontalScrollBarVisibility="Hidden">
-								<ScrollViewer.Background>
-									<ImageBrush ImageSource="/pcClient;component/resource/image/listView_bottom.png"/>
-								</ScrollViewer.Background>
-								<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-							</ScrollViewer>
-						</Themes:ListBoxChrome>
-						<ControlTemplate.Triggers>
-							<Trigger Property="IsEnabled" Value="false">
-								<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
-							</Trigger>
-							<Trigger Property="IsGrouping" Value="true">
-								<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-							</Trigger>
-						</ControlTemplate.Triggers>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-		
-		
-		<Style x:Key="GridViewColumnHeaderStyle1" TargetType="{x:Type GridViewColumnHeader}">
-			<Setter Property="HorizontalContentAlignment" Value="Center"/>
-			<Setter Property="VerticalContentAlignment" Value="Center"/>
-			
-			<Setter Property="BorderThickness" Value="0"/>
-			<Setter Property="Padding" Value="2,0,2,0"/>
-			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
-						<Grid SnapsToDevicePixels="true">
-							<Border x:Name="HeaderBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0,1,0,1" Background="{TemplateBinding Background}" CornerRadius="10,10,0,0">
-								<Grid>
-									
-									<Border Padding="{TemplateBinding Padding}" Grid.RowSpan="2" >
-										<ContentPresenter x:Name="HeaderContent" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0,0,0,1" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-									</Border>
-								</Grid>
-							</Border>
-							
-						</Grid>
-						
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-			
-		</Style>
-		<Style x:Key="ListViewItemStyle1" TargetType="{x:Type ListViewItem}">
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type ListViewItem}">
-						<Border Name="BD_Collector" CornerRadius="5" Background="#bbf9de" Width="auto" Height="30" Margin="5">
+    <Window.Resources>
+        <SolidColorBrush x:Key="ListBorder" Color="#828790"/>
+        <Style x:Key="{x:Static GridView.GridViewScrollViewerStyleKey}" TargetType="{x:Type ScrollViewer}">
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                        <Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <DockPanel Margin="{TemplateBinding Padding}">
+                                <ScrollViewer DockPanel.Dock="Top" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                                    <GridViewHeaderRowPresenter AllowsColumnReorder="{Binding TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContainerStyle="{Binding TemplatedParent.View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderToolTip="{Binding TemplatedParent.View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderStringFormat="{Binding TemplatedParent.View.ColumnHeaderStringFormat, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContextMenu="{Binding TemplatedParent.View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplate="{Binding TemplatedParent.View.ColumnHeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}" Columns="{Binding TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplateSelector="{Binding TemplatedParent.View.ColumnHeaderTemplateSelector, RelativeSource={RelativeSource TemplatedParent}}" Margin="2,0,2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </ScrollViewer>
+                                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" KeyboardNavigation.DirectionalNavigation="Local" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </DockPanel>
+                            <ScrollBar x:Name="PART_HorizontalScrollBar" Cursor="Arrow" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0.0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>
+                            <super:XScrollBar x:Name="PART_VerticalScrollBar" Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0.0" Orientation="Vertical" Visibility="Visible" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" Height="auto" Width="10" Margin="0,40,0,0"/>
+                            <DockPanel Background="{Binding Background, ElementName=PART_VerticalScrollBar}" Grid.Column="1" LastChildFill="false" Grid.Row="1">
+                                <Rectangle DockPanel.Dock="Left" Fill="White" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Width="1"/>
+                                <Rectangle DockPanel.Dock="Top" Fill="White" Height="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ListViewStyle1" TargetType="{x:Type ListView}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="#626262"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListView}">
+                        <Themes:ListBoxChrome x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"  SnapsToDevicePixels="true">
+                            <ScrollViewer Padding="{TemplateBinding Padding}" Style="{DynamicResource {x:Static GridView.GridViewScrollViewerStyleKey}}" HorizontalScrollBarVisibility="Hidden">
+                                <ScrollViewer.Background>
+                                    <ImageBrush ImageSource="/pcClient;component/resource/image/listView_bottom.png"/>
+                                </ScrollViewer.Background>
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Themes:ListBoxChrome>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="GridViewColumnHeaderStyle1" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="2,0,2,0"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                        <Grid SnapsToDevicePixels="true">
+                            <Border x:Name="HeaderBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0,1,0,1" Background="{TemplateBinding Background}" CornerRadius="10,10,0,0">
+                                <Grid>
+
+                                    <Border Padding="{TemplateBinding Padding}" Grid.RowSpan="2" >
+                                        <ContentPresenter x:Name="HeaderContent" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0,0,0,1" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+        <Style x:Key="ListViewItemStyle1" TargetType="{x:Type ListViewItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border Name="BD_Collector" CornerRadius="5" Background="#bbf9de" Width="auto" Height="30" Margin="5">
                             <Label Content="{Binding projectName}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="13" />
-                       </Border>
-                         <ControlTemplate.Triggers>
-                             <Trigger Property="IsMouseOver" Value="True">
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="BD_Collector" Property="Background" Value="#3be99d" />
-                             </Trigger>
-                            <Trigger Property="IsSelected" Value="True">
-                                 <Setter TargetName="BD_Collector" Property="Background" Value="#1cd383" />
                             </Trigger>
-                         </ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="BD_Collector" Property="Background" Value="#1cd383" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
 
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-		<Style x:Key="ListViewItemStyle2" TargetType="{x:Type ListViewItem}">
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type ListViewItem}">
-						<Border Name="BD_Collector" CornerRadius="5" Background="#bbf9de" Width="auto" Height="30" Margin="5">
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ListViewItemStyle2" TargetType="{x:Type ListViewItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border Name="BD_Collector" CornerRadius="5" Background="#bbf9de" Width="auto" Height="30" Margin="5">
                             <Label Content="{Binding ShowProjectName}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="13" />
-                       </Border>
-                         <ControlTemplate.Triggers>
-                             <Trigger Property="IsMouseOver" Value="True">
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="BD_Collector" Property="Background" Value="#3be99d" />
-                             </Trigger>
-                            <Trigger Property="IsSelected" Value="True">
-                                 <Setter TargetName="BD_Collector" Property="Background" Value="#1cd383" />
                             </Trigger>
-                         </ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="BD_Collector" Property="Background" Value="#1cd383" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
 
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-	</Window.Resources>
-	<Window.Background>
-		<ImageBrush ImageSource="/pcClient;component/resource/image/bg_showhide.png"/>
-	</Window.Background>
-	<Grid>
-		<Grid.Background>
-			<ImageBrush/>
-		</Grid.Background>
-        <ListView HorizontalAlignment="Left" Height="327" Margin="68.219,30.722,0,0" VerticalAlignment="Top" Width="160" x:Name="Lv_left" BorderBrush="{x:Null}" BorderThickness="0" Style="{DynamicResource ListViewStyle1}" ItemContainerStyle="{DynamicResource ListViewItemStyle1}" Foreground="{x:Null}" FontSize="14.667">
-			<ListView.Background>
-				<ImageBrush/>
-			</ListView.Background>
-			<ListView.View>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="/pcClient;component/resource/image/bg_showhide.png"/>
+    </Window.Background>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <ListView HorizontalAlignment="Left" Height="327" Margin="38,20,0,0" VerticalAlignment="Top" Width="160" x:Name="Lv_left" BorderBrush="{x:Null}" BorderThickness="0" Style="{DynamicResource ListViewStyle1}" ItemContainerStyle="{DynamicResource ListViewItemStyle1}" Foreground="{x:Null}" FontSize="14.667">
+            <ListView.Background>
+                <ImageBrush/>
+            </ListView.Background>
+            <ListView.View>
                 <GridView  >
-					<GridViewColumn DisplayMemberBinding="{Binding projectName}">
-						<GridViewColumnHeader Width="155" Content="{StaticResource no_choose}" Height="37" Background="{x:Null}" Style="{DynamicResource GridViewColumnHeaderStyle1}" BorderBrush="{x:Null}" FontSize="16" Foreground="#FF626262"/>
-					</GridViewColumn>
-				</GridView>
-			</ListView.View>
+                    <GridViewColumn DisplayMemberBinding="{Binding projectName}">
+                        <GridViewColumnHeader Width="155" Content="{StaticResource no_choose}" Height="37" Background="{x:Null}" Style="{DynamicResource GridViewColumnHeaderStyle1}" BorderBrush="{x:Null}" FontSize="16" Foreground="#FF626262"/>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
 
-		</ListView>
-		<ListView HorizontalAlignment="Left" Height="327" Margin="428.948,30.722,0,0" VerticalAlignment="Top" Width="160" x:Name="Lv_right" RenderTransformOrigin="0.483,0.36" Style="{DynamicResource ListViewStyle1}" Background="{x:Null}" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}" ItemContainerStyle="{DynamicResource ListViewItemStyle2}">
-			<ListView.View>
-				<GridView>
-					<GridViewColumn DisplayMemberBinding="{Binding ShowProjectName}">
-						<GridViewColumnHeader Width="155" Content="{StaticResource choose}" Height="37" Style="{DynamicResource GridViewColumnHeaderStyle1}" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF626262" FontSize="16" />
-					</GridViewColumn>
-				</GridView>
-			</ListView.View>
-		</ListView>
-		<super:XButton  HorizontalAlignment="Left" Margin="279,124,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click" Height="40" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_right1.png" MouseOverImage="/pcClient;component/resource/image/btn_right2.png" PressedImage="/pcClient;component/resource/image/btn_right3.png" RenderTransformOrigin="0.449,-0.159"/>
-		<super:XButton  HorizontalAlignment="Left" Height="40" Margin="279,237,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.444,-0.6" Click="Button_Click_2" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_left1.png" MouseOverImage="/pcClient;component/resource/image/btn_left2.png" PressedImage="/pcClient;component/resource/image/btn_left3.png"/>
-		<super:XButton Content="{StaticResource sure}" HorizontalAlignment="Left" Height="54" Margin="409,365,0,0" VerticalAlignment="Top" Width="188" Click="Button_Click_1" RenderTransformOrigin="1.794,0.457" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_bottom1.png" MouseOverImage="/pcClient;component/resource/image/btn_bottom3.png" PressedImage="/pcClient;component/resource/image/btn_bottom2.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF626262" FontSize="21.333"/>
-		<super:XButton Content="{StaticResource cancel}" HorizontalAlignment="Left" Height="54" Margin="61,365,0,0" VerticalAlignment="Top" Width="188"  RenderTransformOrigin="1.794,0.457" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_bottom1.png" MouseOverImage="/pcClient;component/resource/image/btn_bottom3.png" PressedImage="/pcClient;component/resource/image/btn_bottom2.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btn_cancel" Foreground="#FF626262" FontSize="21.333"/>
-	</Grid>
+        </ListView>
+        <ListView HorizontalAlignment="Left" Height="327" Margin="341,20,0,0" VerticalAlignment="Top" Width="160" x:Name="Lv_right" RenderTransformOrigin="0.483,0.36" Style="{DynamicResource ListViewStyle1}" Background="{x:Null}" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}" ItemContainerStyle="{DynamicResource ListViewItemStyle2}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ShowProjectName}">
+                        <GridViewColumnHeader Width="155" Content="{StaticResource choose}" Height="37" Style="{DynamicResource GridViewColumnHeaderStyle1}" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF626262" FontSize="16" />
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <super:XButton  HorizontalAlignment="Left" Margin="227,131,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click" Height="40" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_right1.png" MouseOverImage="/pcClient;component/resource/image/btn_right2.png" PressedImage="/pcClient;component/resource/image/btn_right3.png" RenderTransformOrigin="0.449,-0.159"/>
+        <super:XButton  HorizontalAlignment="Left" Height="40" Margin="227,217,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.444,-0.6" Click="Button_Click_2" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_left1.png" MouseOverImage="/pcClient;component/resource/image/btn_left2.png" PressedImage="/pcClient;component/resource/image/btn_left3.png"/>
+        <super:XButton Content="{StaticResource sure}" HorizontalAlignment="Left" Height="46" Margin="341,355,0,0" VerticalAlignment="Top" Width="160" Click="Button_Click_1" RenderTransformOrigin="1.794,0.457" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_bottom1.png" MouseOverImage="/pcClient;component/resource/image/btn_bottom3.png" PressedImage="/pcClient;component/resource/image/btn_bottom2.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF626262" FontSize="21.333"/>
+        <super:XButton Content="{StaticResource cancel}" HorizontalAlignment="Left" Height="46" Margin="38,355,0,0" VerticalAlignment="Top" Width="160"  RenderTransformOrigin="1.794,0.457" NineGrid="0" NormalImgae="/pcClient;component/resource/image/btn_bottom1.png" MouseOverImage="/pcClient;component/resource/image/btn_bottom3.png" PressedImage="/pcClient;component/resource/image/btn_bottom2.png" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btn_cancel" Foreground="#FF626262" FontSize="21.333"/>
+    </Grid>
 </Window>
