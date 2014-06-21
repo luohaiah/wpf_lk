@@ -95,8 +95,8 @@ namespace Main.com.lk.Ant
                         send_cancel(response.messageContents[4], response.messageContents[5]);
                         if (!is_has)
                         {
-                            Device device = new Device(channel_share, dao, window);
-                            dic_device.Add(share_address, device);
+                         //   Device device = new Device(channel_share, dao, window);
+                         //  dic_device.Add(share_address, device);
                             list_address.Add(share_address);
                         }
                         else
@@ -185,7 +185,7 @@ namespace Main.com.lk.Ant
                             dic_device.TryGetValue(address1, out device1);
                             if (device1 != null)
                             {
-                                device1.doData(data, address1, response);
+                              //  device1.doData(data, address1, response);
                             }
                             break;
                         }

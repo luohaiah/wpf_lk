@@ -38,7 +38,7 @@ namespace Main
 
                 if ((this.FindResource("open_port") as string).Equals(Btn_open.Content))
                 {
-                    wd.init_SerialPort(this, Cbox_port.SelectedValue.ToString());
+                   // wd.init_SerialPort(this, Cbox_port.SelectedValue.ToString());
                     Btn_open.Content = this.FindResource("close_port") as string;
                 }
                 else

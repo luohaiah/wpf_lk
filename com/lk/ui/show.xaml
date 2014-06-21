@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:super="clr-namespace:BeiLiNu.Ui.Controls.WPF.Controls;assembly=BeiLiNu.Ui.Controls"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="Main.Show"
-        Height="421" Width="542" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Height="421" Width="542" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False"
         WindowStyle="None" AllowsTransparency="True">
     <Window.Resources>
         <SolidColorBrush x:Key="ListBorder" Color="#828790"/>

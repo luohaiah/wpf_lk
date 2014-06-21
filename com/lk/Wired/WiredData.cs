@@ -5,6 +5,7 @@ using System.Timers;
 using Main.com.lk.DbHelper;
 using System.Threading;
 using System.Windows;
+using Main.com.lk.ui;
 namespace Main.com.lk.Wired
 {
     public class WiredData
@@ -14,7 +15,7 @@ namespace Main.com.lk.Wired
         private System.Timers.Timer MyTimer2;
         private static WiredData wd;
         private Dao dao;
-        private WiredManage window;
+        private DataCollection window;
         private StringBuilder builder = new StringBuilder();//避免在事件处理方法中反复的创建，定义到外面。  
         private byte[] f1 = new byte[] { 0xF1, 00, 00, 00, 00, 00, 00, 00, 0xF1 };
         private byte[] f2 = new byte[] { 0xF2, 00, 00, 00, 00, 00, 00, 00, 0xF2 };
@@ -35,7 +36,7 @@ namespace Main.com.lk.Wired
             return wd;
         }
 
-        public void init_SerialPort(WiredManage window, string com_name)
+        public void init_SerialPort(DataCollection window, string com_name)
         {
             this.window = window;
             com = new SerialPort();

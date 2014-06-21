@@ -81,6 +81,7 @@
   <ItemGroup>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
@@ -102,7 +103,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="com\lk\Ant\AntManage2.cs" />
     <Compile Include="com\lk\Entity\Device.cs" />
+    <Compile Include="com\lk\ui\DataCollection .xaml.cs">
+      <DependentUpon>DataCollection .xaml</DependentUpon>
+    </Compile>
     <Compile Include="com\lk\ui\hint.xaml.cs">
       <DependentUpon>hint.xaml</DependentUpon>
     </Compile>
@@ -112,10 +117,16 @@
     <Compile Include="com\lk\ui\show.xaml.cs">
       <DependentUpon>show.xaml</DependentUpon>
     </Compile>
+    <Compile Include="com\lk\util\MyPort.cs" />
+    <Compile Include="com\lk\util\Utils.cs" />
     <Compile Include="com\lk\Wired\WiredData.cs" />
     <Compile Include="com\lk\ui\WiredManage.xaml.cs">
       <DependentUpon>WiredManage.xaml</DependentUpon>
     </Compile>
+    <Page Include="com\lk\ui\DataCollection .xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="com\lk\ui\hint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -226,18 +237,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="com\lk\Interface\" />
-    <Folder Include="com\lk\util\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resource\image\bg_bottom.png" />
     <Resource Include="resource\image\bg_bottom1.png" />
     <Resource Include="resource\image\bg_center.png" />
+    <Resource Include="resource\image\bg_dataCollection.png" />
     <Resource Include="resource\image\bg_edit.png" />
     <Resource Include="resource\image\bg_h_view.png" />
     <Resource Include="resource\image\bg_jump.png" />
     <Resource Include="resource\image\bg_left.png" />
     <Resource Include="resource\image\bg_left_item.png" />
     <Resource Include="resource\image\bg_listView.png" />
+    <Resource Include="resource\image\bg_name_coll.png" />
     <Resource Include="resource\image\bg_num.png" />
     <Resource Include="resource\image\bg_page1.png" />
     <Resource Include="resource\image\bg_page2.png" />
@@ -286,6 +298,9 @@
     <Resource Include="resource\image\btn_showHide1.png" />
     <Resource Include="resource\image\btn_showHide2.png" />
     <Resource Include="resource\image\btn_showHide3.png" />
+    <Resource Include="resource\image\btn_sure_coll1.png" />
+    <Resource Include="resource\image\btn_sure_coll2.png" />
+    <Resource Include="resource\image\btn_sure_coll3.png" />
     <Resource Include="resource\image\btn_user1.png" />
     <Resource Include="resource\image\btn_user2.png" />
     <Resource Include="resource\image\btn_user3.png" />
@@ -294,8 +309,14 @@
     <Resource Include="resource\image\image_cao2.png" />
     <Resource Include="resource\image\image_cao3.png" />
     <Resource Include="resource\image\image_cao4.png" />
+    <Resource Include="resource\image\image_close1_circle.png" />
+    <Resource Include="resource\image\image_close2_circle.png" />
+    <Resource Include="resource\image\image_close3_circle.png" />
     <Resource Include="resource\image\image_dataShow.png" />
+    <Resource Include="resource\image\image_down_1.png" />
+    <Resource Include="resource\image\image_down_2.png" />
     <Resource Include="resource\image\image_juti.png" />
+    <Resource Include="resource\image\image_kuang1_coll.png" />
     <Resource Include="resource\image\image_password.png" />
     <Resource Include="resource\image\image_user.png" />
     <Resource Include="resource\image\line_left.png" />

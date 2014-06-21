@@ -14,6 +14,7 @@ using Main.com.lk.Constant;
 using Main.com.lk.ui;
 using System.Threading;
 using System.Windows.Media.Animation;
+using Main.com.lk.util;
 
 namespace Main
 {
@@ -22,7 +23,7 @@ namespace Main
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AntManage antmanage;
+        private AntManage2 antmanage;
         private Dao dao;
         private int index = 1;//当前页数
         private int totalpage;//总页数
@@ -34,7 +35,7 @@ namespace Main
         {
             InitializeComponent();
             image_user.Content = username;
-            antmanage = new AntManage(this);
+            antmanage = new AntManage2(this);
             dao = Dao.getInstance(this);
             init_GridView(true);
             Lb_current.Content = index;
@@ -659,10 +660,7 @@ namespace Main
 
         private void test(object sender, RoutedEventArgs e)
         {
-            if (!antmanage.initAnt())
-            {
-                antmanage.shutdown();
-            }
+            antmanage.initAnt();
         }
 
         private void Tbox_search_click(object sender, MouseButtonEventArgs e)
@@ -743,13 +741,9 @@ namespace Main
             }));
         }
 
-        private void test2(object sender, RoutedEventArgs e)
-        {
-        }
-
         private void close(object sender, RoutedEventArgs e)
         {
-            antmanage.shutdown();
+          //  antmanage.shutdown();
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += bw_DoWork;
             bw.RunWorkerAsync();
@@ -758,8 +752,15 @@ namespace Main
 
         private void window_Closed(object sender, EventArgs e)
         {
+            Utils.EditConfig("youxian", toast("open_port"));
             showHideBaseInfo("1");
             dao.closeDb();
+            antmanage.closeChannel();
+        }
+
+        private void data_caiji(object sender, RoutedEventArgs e)
+        {
+            new DataCollection(this).ShowDialog();
         }
     }
 

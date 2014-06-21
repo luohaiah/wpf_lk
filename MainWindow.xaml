@@ -6,7 +6,7 @@
         xmlns:super="clr-namespace:BeiLiNu.Ui.Controls.WPF.Controls;assembly=BeiLiNu.Ui.Controls"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Name="window" x:Class="Main.MainWindow"
         Height="607" Width="1009"
-        WindowState="Normal" WindowStartupLocation="CenterScreen"  ResizeMode="CanMinimize" Activated="Window_Activated" Loaded="Window_Loaded" WindowStyle="None" Background="{x:Null}" AllowsTransparency="True" Closed="window_Closed"
+        WindowState="Normal" WindowStartupLocation="CenterScreen"  ResizeMode="CanMinimize" Activated="Window_Activated" Loaded="Window_Loaded" WindowStyle="None" Background="{x:Null}" AllowsTransparency="True" Closed="window_Closed" ShowInTaskbar="False"
 >
     <Window.Resources>
         <Style x:Key="LabelStyle1" TargetType="{x:Type Label}">
@@ -511,7 +511,7 @@
             </StackPanel.Background>
             <super:XButton Content="{StaticResource export_data}" Height="99" Width="105"  VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="18" Foreground="#FF4A8670" NormalImgae="resource/image/btn_export1.png" PressedImage="resource/image/btn_export2.png" MouseOverImage="resource/image/btn_export3.png" Click="Data_export_Click"/>
             <super:XButton Content="{StaticResource import_data}" Height="99" Width="105"  VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="18" Foreground="#FF4A8670" NormalImgae="resource/image/btn_import1.png" PressedImage="resource/image/btn_import2.png" MouseOverImage="resource/image/btn_import3.png" Click="Data_import_Click"/>
-            <super:XButton Content="{StaticResource caiji_data}" Height="99" Width="105"  VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="18" Foreground="#FF4A8670" NormalImgae="resource/image/btn_caiji1.png" PressedImage="resource/image/btn_caiji2.png" MouseOverImage="resource/image/btn_caiji3.png" Click="test2" />
+            <super:XButton Content="{StaticResource caiji_data}" Height="99" Width="105"  VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="18" Foreground="#FF4A8670" NormalImgae="resource/image/btn_caiji1.png" PressedImage="resource/image/btn_caiji2.png" MouseOverImage="resource/image/btn_caiji3.png" Click="data_caiji" />
             <super:XButton Content="{StaticResource show_hide}" Height="99" Width="105"  VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="18" Foreground="#FF4A8670" NormalImgae="resource/image/btn_showHide1.png" PressedImage="resource/image/btn_showHide2.png" MouseOverImage="resource/image/btn_showHide3.png" Click="showAndHideCol"/>
             <super:XButton Content="{StaticResource help}" Height="99" Width="105"  VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" FontSize="18" Foreground="#FF4A8670" NormalImgae="resource/image/btn_help1.png" PressedImage="resource/image/btn_help2.png" MouseOverImage="resource/image/btn_help3.png" Click="test"/>
             <StackPanel Margin="30,0,0,0" Orientation="Vertical" Width="291" Height="101">
