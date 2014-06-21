@@ -31,6 +31,7 @@ namespace Main
         private DataView dv;
         private BackgroundWorker work;
         private bool is_nodeAll = true;
+        private int choose = 0;
         public MainWindow(string username)
         {
             InitializeComponent();
@@ -59,6 +60,9 @@ namespace Main
                     break;
                 case 3:
                     temp = dao.get_totalCount_sex(grade, classname, sex);
+                    break;
+                case 5:
+                    temp = dao.get_totalCount_juti();
                     break;
                 default:
                     break;
@@ -184,7 +188,6 @@ namespace Main
         }
         private void export_data()
         {
-            int choose = 0;
             NodeNew node;
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = ("Excel 文件(*.xls)|*.xls");//指定文件后缀名为Excel 文件。  
@@ -240,16 +243,7 @@ namespace Main
 
         private void Btn_prev_Click(object sender, RoutedEventArgs e)
         {
-            if (TreeView_data.SelectedItem != null)
-            {
-                node = (TreeView_data.SelectedItem as NodeNew);
-                is_nodeAll = TreeView_data.SelectedItem.ToString().Contains(toast("all"));
-                if (!is_nodeAll && node == null)
-                {
-                    return;
-                }
-            }
-            if (index > 2)
+            if (index >= 2)
             {
                 index--;
                 Lb_current.Content = index;
@@ -257,10 +251,6 @@ namespace Main
             }
             else
             {
-                if (index == 2)
-                {
-                    index--;
-                }
                 Lb_current.Content = index;
                 start_Thread();
             }
@@ -268,15 +258,6 @@ namespace Main
 
         private void Btn_next_Click(object sender, RoutedEventArgs e)
         {
-
-            if (TreeView_data.SelectedItem != null)
-            {
-                node = (TreeView_data.SelectedItem as NodeNew);
-                if (!TreeView_data.SelectedItem.ToString().Contains(toast("all")) && node == null)
-                {
-                    return;
-                }
-            }
             if (index < totalpage)
             {
                 index++;
@@ -299,14 +280,6 @@ namespace Main
 
         private void Btn_go_Click(object sender, RoutedEventArgs e)
         {
-            if (TreeView_data.SelectedItem != null)
-            {
-                node = (TreeView_data.SelectedItem as NodeNew);
-                if (!TreeView_data.SelectedItem.ToString().Contains(toast("all")) && node == null)
-                {
-                    return;
-                }
-            }
             index = Convert.ToInt32(Tb_go.Text);
             Lb_current.Content = index;
             start_Thread();
@@ -314,22 +287,43 @@ namespace Main
         }
         private void adapterData(int index, NodeNew node)
         {
-            int choose = 0;
+            int floor = 0;
             if (node == null)
             {
-                if (index < 2)
+                if (choose == 0)
                 {
-                    dv = dao.get_table_first().DefaultView;
+                    if (index < 2)
+                    {
+                        dv = dao.get_table_first().DefaultView;
+                    }
+                    else
+                    {
+                        dv = dao.get_table(index).DefaultView;
+                    }
                 }
-                else
+                else if (choose == 5)
                 {
-                    dv = dao.get_table(index).DefaultView;
+                    if (index < 2)
+                    {
+                        dv = dao.get_table_juti_first().DefaultView;
+                    }
+                    else
+                    {
+                        dv = dao.get_table_juti(index).DefaultView;
+                    }
+                }
+                else if (choose == 4)
+                {
+                    if (index < 2)
+                    {
+                        dv = dao.get_table_temp_first().DefaultView;
+                    }
                 }
             }
             else
             {
-                choose = node.floor;
-                switch (choose)
+                floor = node.floor;
+                switch (floor)
                 {
                     case 1:
                         if (index < 2)
@@ -515,7 +509,7 @@ namespace Main
         }
         private int getChoose()
         {
-            int choose = 0;
+
             if (TreeView_data.SelectedItem == null || TreeView_data.SelectedItem.ToString().Contains(toast("all")))
             {
                 choose = 0;
@@ -580,6 +574,7 @@ namespace Main
             showHideBaseInfo("1");
             this.Dispatcher.Invoke(new Action(delegate
             {
+                getChoose();
                 init_GridView(false);
                 initPage(0, null, null, null);
                 dataGrid.ItemsSource = dao.get_table_first().DefaultView;
@@ -605,6 +600,7 @@ namespace Main
             Constant.select = 0;
             this.Dispatcher.Invoke(new Action(delegate
             {
+                getChoose();
                 showHideBaseInfo("0");
                 init_GridView(false);
                 dataGrid.ItemsSource = dao.get_table_temp_first().DefaultView;
@@ -737,13 +733,20 @@ namespace Main
             showHideBaseInfo("1");
             this.Dispatcher.Invoke(new Action(delegate
             {
+                getChoose();
                 init_GridView(false);
+                node = (TreeView_data.SelectedItem as NodeNew);
+                if (node == null)
+                {
+                    initPage(5, null, null, null);
+                    dataGrid.ItemsSource = dao.get_table_juti_first().DefaultView;
+                }
             }));
         }
 
         private void close(object sender, RoutedEventArgs e)
         {
-          //  antmanage.shutdown();
+            //  antmanage.shutdown();
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += bw_DoWork;
             bw.RunWorkerAsync();

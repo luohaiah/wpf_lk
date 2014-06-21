@@ -218,6 +218,16 @@ namespace Main.com.lk.DbHelper
             ad.Fill(dt);
             return dt.Rows.Count;
         }
+
+        public int get_totalCount_juti()
+        {
+            OleDbConnection con = new OleDbConnection(Constant.Constant.Connectstr);
+            string sql = "select * from LkTable where " + Constant.Constant.temp + " = 1";
+            OleDbDataAdapter ad = new OleDbDataAdapter(sql, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt.Rows.Count;
+        }
         /// <summary>
         /// 获取年级数据总条数
         /// </summary>
@@ -338,6 +348,27 @@ namespace Main.com.lk.DbHelper
         {
             OleDbConnection con = new OleDbConnection(Constant.Constant.Connectstr);
             string sql = "select * from LkTable where " + Constant.Constant.temp + " = 0";
+            OleDbDataAdapter ad = new OleDbDataAdapter(sql, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+        }
+
+        public DataTable get_table_juti_first()
+        {
+            OleDbConnection con = new OleDbConnection(Constant.Constant.Connectstr);
+            string sql = "select top 60 * from LkTable where " + Constant.Constant.temp + " = 1";
+            OleDbDataAdapter ad = new OleDbDataAdapter(sql, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+        }
+        public DataTable get_table_juti(int index)
+        {
+            OleDbConnection con = new OleDbConnection(Constant.Constant.Connectstr);
+            //string sql = "select top  60 * from LkTable where RecordId not in(select top " + 60 * (index - 1) + " RecordId from LkTable );"; 不要使用not in语句 效率很低
+            //select top 每页数量 * from 表 where id >(select top 1 max(id) from (select top （页数-1）*每页数量 from 表 order by id,name)) 
+            string sql = "select top 60 * from LkTable where " + Constant.Constant.temp + " = 1 and RecordId > (select top 1 max(RecordId) from (select top " + 60 * (index - 1) + " RecordId from LkTable order by RecordId)) order by RecordId;";
             OleDbDataAdapter ad = new OleDbDataAdapter(sql, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
