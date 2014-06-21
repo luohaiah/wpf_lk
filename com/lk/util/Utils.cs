@@ -24,5 +24,18 @@ namespace Main.com.lk.util
             xmlDoc.Save(configPath);
             ConfigurationManager.RefreshSection("appSettings");
         }
+        /// <summary>
+        /// 读配置文件
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string getConfig(string key)//获取参数
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            string configPath = System.Windows.Forms.Application.ExecutablePath + ".config";
+            xmlDoc.Load(configPath);
+            XmlNode xmlNode = xmlDoc.SelectSingleNode("configuration/appSettings/add[@key='" + key + "']");
+            return xmlNode.Attributes["value"].InnerText;
+        }
     }
 }

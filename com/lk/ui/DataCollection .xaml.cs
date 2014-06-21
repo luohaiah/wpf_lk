@@ -31,7 +31,7 @@ namespace Main.com.lk.ui
         public DataCollection(MainWindow window)
         {
             InitializeComponent();
-            string youxian_status = ConfigurationManager.AppSettings["youxian"];
+            string youxian_status = Utils.getConfig("youxian");
             if (!youxian_status.Equals(""))
             {
                 xButton.Content = youxian_status;
@@ -86,7 +86,5 @@ namespace Main.com.lk.ui
         {
             this.Close();
         }
-
-
     }
 }
