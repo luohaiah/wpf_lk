@@ -16,6 +16,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Forms;
 using System.Linq;
+using System.Threading;
 namespace Main.com.lk.util
 {
     public class MyPort
@@ -32,11 +33,12 @@ namespace Main.com.lk.util
         public const String COM8 = "com8";
         private MainWindow window;
         private bool is_has = false;
-        private List<string> list_address = new List<string>();
+        public List<string> list_address = new List<string>();
         private Dao dao;
-        private Dictionary<string, Device> dic_device = new Dictionary<string, Device>();
-        private Timer timer = new Timer();
+        public Dictionary<string, Device> dic_device = new Dictionary<string, Device>();
+        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private int i = 0;
+        private static MyPort myPort;
         public MyPort(MainWindow window)
         {
             this.window = window;
@@ -44,7 +46,14 @@ namespace Main.com.lk.util
             sp = new SerialPort();
 
         }
-
+        public static MyPort getInstance(MainWindow window)
+        {
+            if (myPort == null)
+            {
+                myPort = new MyPort(window);
+            }
+            return myPort;
+        }
         public const int Rate_300 = 300;
         public const int Rate_600 = 600;
         public const int Rate_1200 = 1200;
@@ -164,13 +173,13 @@ namespace Main.com.lk.util
 
         void timer_Tick(object sender, EventArgs e)
         {
-            if (Constant.Constant.is_remove)
-            {
-                Constant.Constant.is_remove = false;
-                list_address.Remove(Constant.Constant.address);
-                dic_device.Remove(Constant.Constant.address);
-                Constant.Constant.address = "";
-            }
+            //if (Constant.Constant.is_remove)
+            //{
+            //    Constant.Constant.is_remove = false;
+            //    list_address.Remove(Constant.Constant.address);
+            //    dic_device.Remove(Constant.Constant.address);
+            //    Constant.Constant.address = "";
+            //}
             int count = list_address.Count;
             if (count > 0)
             {
@@ -269,7 +278,7 @@ namespace Main.com.lk.util
                     }
                 }
             }
-            if (buf[0].ToString("X2").Equals("BC") && buf[1].Equals(1))//共享通道
+            if (buf[0].ToString("X2").Equals("BC") && (buf[1].Equals(1) || buf[1].Equals(0)))//共享通道
             {
 
 
@@ -281,93 +290,6 @@ namespace Main.com.lk.util
                     device1.doData(buf, address1);
                 }
             }
-            //if (buf[0].ToString("X2").Equals("BC") && buf[4].ToString("X2").Equals("B1"))//收到D1命令回复F1命令
-            //{
-            //    checkSum_result = ((byte)(buf[0] + buf[1] + buf[2] + buf[3] + buf[4] +
-            //    buf[5] + buf[6] + buf[7] + buf[8] + buf[9])).Equals(buf[10]);
-            //    if (checkSum_result)
-            //    {
-            //        switch (buf[3])
-            //        {
-            //            case 1://1号探头
-            //                if (buf[5] == 1)//跑道1
-            //                {
-            //                    Console.Out.WriteLine(buf[5] + "||" + buf[6]);
-            //                    if (IsUpdate_runway1)
-            //                    {
-            //                        IsUpdate_runway1 = false;
-            //                        updateResult(0);
-            //                    }
-            //                }
-            //                if (buf[6] == 1)//跑道2
-            //                {
-            //                    if (IsUpdate_runway2)
-            //                    {
-            //                        IsUpdate_runway2 = false;
-            //                        updateResult(1);
-            //                    }
-            //                }
-            //                break;
-            //            case 2://2号探头
-            //                if (buf[5] == 1)//跑道3
-            //                {
-            //                    if (IsUpdate_runway3)
-            //                    {
-            //                        IsUpdate_runway3 = false;
-            //                        updateResult(2);
-            //                    }
-            //                }
-            //                if (buf[6] == 1)//跑道4
-            //                {
-            //                    if (IsUpdate_runway4)
-            //                    {
-            //                        IsUpdate_runway4 = false;
-            //                        updateResult(3);
-            //                    }
-            //                }
-            //                break;
-            //            case 3://3号探头
-            //                if (buf[5] == 1)//跑道5
-            //                {
-            //                    if (IsUpdate_runway5)
-            //                    {
-            //                        IsUpdate_runway5 = false;
-            //                        updateResult(4);
-            //                    }
-            //                }
-            //                if (buf[6] == 1)//跑道6
-            //                {
-            //                    if (IsUpdate_runway6)
-            //                    {
-            //                        IsUpdate_runway6 = false;
-            //                        updateResult(5);
-            //                    }
-            //                }
-            //                break;
-            //            case 4://4号探头
-            //                if (buf[5] == 1)//跑道7
-            //                {
-            //                    if (IsUpdate_runway7)
-            //                    {
-            //                        IsUpdate_runway7 = false;
-            //                        updateResult(6);
-            //                    }
-            //                }
-            //                if (buf[6] == 1)//跑道8
-            //                {
-            //                    if (IsUpdate_runway8)
-            //                    {
-            //                        IsUpdate_runway8 = false;
-            //                        updateResult(7);
-            //                    }
-            //                }
-            //                break;
-            //            default:
-            //                break;
-            //        }
-
-            //    }
-            //}
         }
         /// <summary>
         /// 关闭串口
@@ -390,8 +312,8 @@ namespace Main.com.lk.util
                 + Convert.ToInt16((char)deviceId)
                 + Convert.ToInt16((char)(deviceId >> 8))
                 + deviceType
-                + Convert.ToInt16((char)period)
-                + Convert.ToInt16((char)(period >> 8))
+                + Convert.ToInt32((char)period)
+                + Convert.ToInt32((char)(period >> 8))
                 + frequency;
             byte[] res = new byte[11];
             res[0] = 0xAA;
@@ -440,7 +362,7 @@ namespace Main.com.lk.util
         /// </summary>
         public void sendMessage(int channelNum, byte[] data)
         {
-            int check = Convert.ToInt32("AC", 16)
+            int check = 172  //Convert.ToInt32("AC", 16)
                 + channelNum;
             for (int j = 0; j < data.Length; j++)
             {
@@ -449,7 +371,7 @@ namespace Main.com.lk.util
             byte[] res = new byte[11];
             res[0] = 0xAC;
             res[1] = (byte)channelNum;
-            for (int i = 2; i < 10; i++)
+            for (int i = 2; i < data.Length + 2; i++) //10
             {
                 res[i] = data[i - 2];
             }

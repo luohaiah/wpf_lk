@@ -63,7 +63,7 @@ namespace Main.com.lk.DbHelper
                 ADOX.TableClass table3 = new ADOX.TableClass();
                 table3.Name = Constant.Constant.table_user;
                 setPrimaryKey(cat, table);
-                for (int i = 0; i < 25; i++)
+                for (int i = 0; i < 26; i++)
                 {
                     //增加一个文本字段   
                     col = new ADOX.ColumnClass();
@@ -216,7 +216,12 @@ namespace Main.com.lk.DbHelper
                             col.Type = DataTypeEnum.adInteger;
                             col.Properties["Default"].Value = 0;//设置字段默认值
                             table.Columns.Append(col);
-
+                            break;
+                        case 25:
+                            col.Name = Constant.Constant.Run_fifty;//列的名称 
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Type = DataTypeEnum.adDouble;
+                            table.Columns.Append(col);
                             break;
                         default:
                             break;
@@ -365,6 +370,8 @@ namespace Main.com.lk.DbHelper
             sql = "insert into LkProject(项目类型,状态)values('" + Constant.Constant.pullUp + "','0')";
             SQLExecute(sql);
             sql = "insert into LkProject(项目类型,状态)values('" + Constant.Constant.Shuttlerun + "','0')";
+            SQLExecute(sql);
+            sql = "insert into LkProject(项目类型,状态)values('" + Constant.Constant.Run_fifty + "','0')";
             SQLExecute(sql);
             closeDb();
         }

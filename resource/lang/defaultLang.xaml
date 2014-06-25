@@ -62,6 +62,10 @@
     <my:String x:Key="situp">仰卧起坐</my:String>
     <my:String x:Key="pullup">引体向上</my:String>
     <my:String x:Key="vc">肺活量</my:String>
+    <my:String x:Key="run_fifty">50米跑</my:String>
     <my:String x:Key="shuttleRun">折返跑</my:String>
     <my:String x:Key="tiqianqu">坐位体前屈</my:String>
+    <my:String x:Key="youxian_sc">有线上传</my:String>
+    <my:String x:Key="wuxian_sc">无线上传</my:String>
+    <my:String x:Key="wifi_sc">Wifi上传</my:String>
 </ResourceDictionary>

@@ -10,7 +10,7 @@ using Main.com.lk.util;
 
 namespace Main.com.lk.Entity
 {
-    class Device
+    public class Device
     {
         private byte cmd = 0xBF;
         private int studentNum_length;
@@ -30,7 +30,6 @@ namespace Main.com.lk.Entity
         }
         public void doData(byte[] data, string address)
         {
-            //if ("B1".Equals(data[3]) && "B0".Equals(data[4]))//数据头
             if ("B0".Equals(data[5].ToString("X2")))//数据头
             {
                 if (!dic.Keys.Contains(address))
@@ -93,6 +92,10 @@ namespace Main.com.lk.Entity
                     {
                         dao.update_proneness(studentNum, result_int / 10.0);
                     }
+                    else if ("21".Equals(type))//50米跑
+                    {
+                        dao.update_run_fifity(studentNum, result_int / 1000.0);
+                    }
                     else if ("0C".Equals(type))//身高体重
                     {
                         double height = Convert.ToInt32(data[7].ToString("X2") + data[6].ToString("X2"), 16) / 10.0;
@@ -103,14 +106,14 @@ namespace Main.com.lk.Entity
                 }
                 else if ("BF".Equals(data[5].ToString("X2")))
                 {
-                    Constant.Constant.is_remove = true;
-                    Constant.Constant.address = address;
-                    dic.Remove(address);
-                    Thread.Sleep(1000);
                     window.Dispatcher.Invoke(new Action(delegate
                     {
                         window.dataGrid.ItemsSource = dao.get_table_all().DefaultView;
                     }));
+                    send_Cancel_share();
+                    dic.Remove(address);
+                    port.list_address.Remove(address);
+                    port.dic_device.Remove(address);
                 }
             }
         }
@@ -118,10 +121,7 @@ namespace Main.com.lk.Entity
         {
             address1 = Convert.ToByte(address[0], 16);
             address2 = Convert.ToByte(address[1], 16);
-            //channel.sendAcknowledgedData(new byte[] { address1, address2, cmd, 0, 0, 0, 0, 0 });//测试
-            //   channel.sendBurstTransfer(new byte[] { address1, address2, cmd, 0, 0, 0, 0, 0 });//测试
             port.sendMessage(1, new byte[] { address1, address2, cmd, 0, 0, 0, 0, 0 });
-            send_cancel_share();
         }
 
         private void send_start_share()
@@ -140,9 +140,9 @@ namespace Main.com.lk.Entity
         {
             cmd = 0xD3;
         }
-        private void send_cancel_share()
+        private void send_Cancel_share()
         {
-            cmd = 0xBF;
+            cmd = 0xD4;
         }
     }
 }

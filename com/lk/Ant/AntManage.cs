@@ -116,13 +116,13 @@ namespace Main.com.lk.Ant
                             switch (response.getChannelEventCode())
                             {
                                 case ANT_ReferenceLibrary.ANTEventID.EVENT_TX_0x03:
-                                    if (Constant.Constant.is_remove)
-                                    {
-                                        Constant.Constant.is_remove = false;
-                                        list_address.Remove(Constant.Constant.address);
-                                        dic_device.Remove(Constant.Constant.address);
-                                        Constant.Constant.address = "";
-                                    }
+                                    //if (Constant.Constant.is_remove)
+                                    //{
+                                    //    Constant.Constant.is_remove = false;
+                                    //    list_address.Remove(Constant.Constant.address);
+                                    //    dic_device.Remove(Constant.Constant.address);
+                                    //    Constant.Constant.address = "";
+                                    //}
                                     int count = list_address.Count;
                                     if (count > 0)
                                     {

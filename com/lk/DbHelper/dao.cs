@@ -13,7 +13,7 @@ using System.Windows;
 
 namespace Main.com.lk.DbHelper
 {
-    class Dao
+  public class Dao
     {
         private static Dao dao;
         private Db_base db;
@@ -386,7 +386,7 @@ namespace Main.com.lk.DbHelper
                 filename = filename.Substring(index + 1);//获取excel名称(新建表的路径相对于SaveFileDialog的路径)  
                 sql = "select 项目类型 from LkProject  where 状态 = '1'";
                 DataSet ds = db.select(sql);
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                for (int i = 5; i < ds.Tables[0].Rows.Count; i++)
                 {
                     pjNames = pjNames + "," + ds.Tables[0].Rows[i][0] as string + "," + ds.Tables[0].Rows[i][0] as string + window.FindResource("score") as string;
                 }
@@ -665,6 +665,24 @@ namespace Main.com.lk.DbHelper
             else
             {
                 sql = "UPDATE LkTable SET " + Constant.Constant.height + " = " + height + "," + Constant.Constant.weight + " = " + weight + "  WHERE " + Constant.Constant.studentNum + " = '" + studentNum + "'";
+                db.SQLExecute(sql);
+            }
+        }
+        //50米跑
+        public void update_run_fifity(string studentNum, double result)
+        {
+            string sql;
+            Db_base db = Db_base.getInstance_Db();
+            sql = "select " + Constant.Constant.studentNum + " from LkTable  where " + Constant.Constant.studentNum + " = '" + studentNum + "'";
+            DataSet dsMsg = db.select(sql);
+            if (dsMsg.Tables[0].Rows.Count == 0)
+            {
+                sql = "insert into LkTable(" + Constant.Constant.studentNum + "," + Constant.Constant.Run_fifty + ")values('" + studentNum + "'," + result + ")";
+                db.SQLExecute(sql);
+            }
+            else
+            {
+                sql = "UPDATE LkTable SET " + Constant.Constant.Run_fifty + " = " + result + " WHERE " + Constant.Constant.studentNum + " = '" + studentNum + "'";
                 db.SQLExecute(sql);
             }
         }

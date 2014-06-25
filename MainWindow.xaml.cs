@@ -30,7 +30,6 @@ namespace Main
         private NodeNew node;
         private DataView dv;
         private BackgroundWorker work;
-        private bool is_nodeAll = true;
         private int choose = 0;
         public MainWindow(string username)
         {
@@ -157,6 +156,11 @@ namespace Main
                 else if (Constant.Shuttlerun.Equals(ds.Tables[0].Rows[i][0]))
                 {
                     dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.Shuttlerun), Width = 90 });
+                    //  dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.Shuttlerun_score), Width = 50 });
+                }
+                else if (Constant.Run_fifty.Equals(ds.Tables[0].Rows[i][0]))
+                {
+                    dataGrid.Columns.Add(new DataGridTextColumn() { Header = ds.Tables[0].Rows[i][0], Binding = new System.Windows.Data.Binding(Constant.Run_fifty), Width = 90 });
                     //  dataGrid.Columns.Add(new DataGridTextColumn() { Header = this.FindResource("score") as string, Binding = new System.Windows.Data.Binding(Constant.Shuttlerun_score), Width = 50 });
                 }
             }
@@ -656,7 +660,6 @@ namespace Main
 
         private void test(object sender, RoutedEventArgs e)
         {
-            antmanage.initAnt();
         }
 
         private void Tbox_search_click(object sender, MouseButtonEventArgs e)
@@ -756,6 +759,7 @@ namespace Main
         private void window_Closed(object sender, EventArgs e)
         {
             Utils.EditConfig("youxian", toast("open_port"));
+            Utils.EditConfig("wuxian", toast("open_port"));
             showHideBaseInfo("1");
             dao.closeDb();
             antmanage.closeChannel();

@@ -113,6 +113,10 @@ namespace Main.com.lk.Wired
                     MyTimer.Enabled = true;
                     f2 = new byte[] { 0xF2, 00, 00, 00, 00, 00, 00, 00, 0xF2 };
                 }
+                window.window.Dispatcher.Invoke(new Action(delegate
+              {
+                  window.window.dataGrid.ItemsSource = dao.get_table_all().DefaultView;
+              }));
             }
             else if (buf[0].ToString("X2").Equals("E1"))//收到E1命令
             {
@@ -136,7 +140,7 @@ namespace Main.com.lk.Wired
                             builder.Append(buf[i].ToString("X2"));
                         }
                     }
-                    temp = Convert.ToInt32(builder.ToString(), 16).ToString();
+                    temp = Convert.ToInt64(builder.ToString(), 16).ToString();
                     if (studentNum_length > temp.Length)
                     {
                         int value = studentNum_length - temp.Length;
@@ -179,7 +183,7 @@ namespace Main.com.lk.Wired
                                 dao.update_pushUp(studentNum, Convert.ToInt32(result));
                                 break;
                             case 15://坐位体前屈
-                                dao.update_proneness(studentNum, Convert.ToInt32(result)/10.0);
+                                dao.update_proneness(studentNum, Convert.ToInt32(result) / 10.0);
                                 break;
                             case 25://引体向上
                                 dao.update_pullUp(studentNum, Convert.ToInt32(result));

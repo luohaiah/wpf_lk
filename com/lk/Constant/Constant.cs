@@ -8,18 +8,18 @@ namespace Main.com.lk.Constant
     class Constant
     {
         public const byte NetworkNum = 0;
-        public const ushort DeviceNum = 77;
+        public const ushort DeviceNum = 77;//77
         public const bool PairEnable = false;
         public const byte Devicetype = 127;
         public const byte Translatetype = 3;
         public const ushort Period = 8192;
         public const byte Freq = 77;
         public static string Connectstr = "provider=Microsoft.Jet.OleDb.4.0;Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "DataBase\\" + "Lk.mdb;";
-        public const ushort DeviceNum_share = 50;
+        public const ushort DeviceNum_share = 50;//50
         public const bool PairEnable_share = false;
         public const byte Devicetype_share = 126;
         public const byte Translatetype_share = 3;
-        public const ushort Period_share = 512;
+        public const ushort Period_share = 512;//512
         public const byte Freq_share = 75;
         public static bool isCover = false;
         public const string mdbName = "Lk.mdb";
@@ -47,14 +47,15 @@ namespace Main.com.lk.Constant
         public const string pullUp_score = "引体向上得分";
         public const string Shuttlerun = "折返跑";
         public const string Shuttlerun_score = "折返跑得分";
+        public const string Run_fifty = "五十米跑";
         public const string clname = "班级";
         public const string grade = "年级";
         public const string cardNum = "卡号";
         public const string temp = "临时";
-        public static bool is_remove = false;
         public static string address;
         public const string username = "lingkang2014";
         public const string password = "2014";
         public static int select = 1; //用于区别是左侧是选择了全部还是临时（全部1，临时0）
+      
     }
 }
