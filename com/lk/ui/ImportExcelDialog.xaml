@@ -1,0 +1,41 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:BeiLiNu.Ui.Controls.WPF.Controls;assembly=BeiLiNu.Ui.Controls" x:Class="Main.com.lk.ui.ImportExcelDialog"
+        Title="ImportExcelDialog" Height="353" Width="522" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+	<Window.Resources>
+		<Storyboard x:Key="OnLoaded1" RepeatBehavior="Forever" AutoReverse="False">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="pg_excel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseInOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="360"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</Window.Resources>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource OnLoaded1}"/>
+		</EventTrigger>
+	</Window.Triggers>
+	<Window.Background>
+		<ImageBrush ImageSource="/pcClient;component/resource/image/bg_importExcel.png"/>
+	</Window.Background>
+	<Grid>
+		<Label Content="正在导入excel数据..." Height="38.555" Margin="101.362,58.945,101.362,255.5" Width="319.276" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="#FF20AD76"/>
+		<Image HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Source="/pcClient;component/resource/image/pg_importExcel.png" Height="148" Width="161" Name="pg_excel" RenderTransformOrigin="0.5,0.5">
+			<Image.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Image.RenderTransform>
+		</Image>
+		<Label HorizontalAlignment="Left" Height="49.397" Margin="224.097,151.809,0,0" VerticalAlignment="Top" Width="74.699" FontSize="30" Foreground="#FFF1770B" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="Lable_progress" RenderTransformOrigin="0.484,0.707"/>
+        
+	</Grid>
+</Window>
