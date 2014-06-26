@@ -32,6 +32,8 @@ namespace Main
         private BackgroundWorker work;
         private int choose = 0;
         private DataCollection Dc;
+        private OpenFileDialog dlg;
+        private ImportExcelDialog dialog;
         public MainWindow(string username)
         {
             InitializeComponent();
@@ -85,6 +87,7 @@ namespace Main
 
         private void Data_import_Click(object sender, RoutedEventArgs e)
         {
+
             import_data();
         }
 
@@ -172,23 +175,41 @@ namespace Main
         }
         private void import_data()
         {
-            //hint hint = new Main.hint();
-            //hint.ShowDialog();
-            OpenFileDialog dlg = new OpenFileDialog();
+
+            dialog = new ImportExcelDialog();
+            dialog.Owner = this;
+            dlg = new OpenFileDialog();
             dlg.Filter = "Excel文件(*.xls)|*.xls";
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                string filePath = dlg.FileName;
-                if (dao.importExcel(filePath))
+                BackgroundWorker bw2 = new BackgroundWorker();
+                bw2.DoWork += bw2_DoWork;
+                bw2.RunWorkerAsync();
+                dialog.ShowDialog();
+            }
+        }
+
+        void bw2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string filePath = dlg.FileName;
+            if (dao.importExcel(filePath, dialog))
+            {
+                Dispatcher.Invoke(new Action(delegate
                 {
+                    dialog.Close();
                     dataGrid.ItemsSource = dao.get_table_first().DefaultView;
                     transform(dao.select_Grade());
                     System.Windows.MessageBox.Show(this.FindResource("import_success") as string);
-                }
-                else
+                }));
+
+            }
+            else
+            {
+                Dispatcher.Invoke(new Action(delegate
                 {
+                    dialog.Close();
                     System.Windows.MessageBox.Show(this.FindResource("import_fail") as string);
-                }
+                }));
             }
         }
         private void export_data()

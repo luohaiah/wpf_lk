@@ -33,7 +33,7 @@ namespace Main.com.lk.DbHelper
             db = Db_base.getInstance_Db();
         }
 
-        public bool importExcel(String path)
+        public bool importExcel(String path, ImportExcelDialog dialog)
         {
             try
             {
@@ -52,11 +52,12 @@ namespace Main.com.lk.DbHelper
                     {
                         ds.Load(drLiming, LoadOption.OverwriteChanges, new string[] { "Sheet1" });
                         DataTable dt = ds.Tables["Sheet1"];
-                        if (dt.Rows.Count > 0)
+                        int count = dt.Rows.Count;
+                        if (count > 0)
                         {
-                            for (int i = 0; i < dt.Rows.Count; i++)
+                            for (int i = 0; i < count; i++)
                             {
-
+                                dialog.Dispatcher.Invoke(new Action(delegate { dialog.setProgress((int)(((double)i / (double)count) * 100)); }));
                                 //写入数据库数据
                                 sql = "select " + Constant.Constant.studentNum + " from LkTable where " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
                                 DataSet dsMsg = db.select(sql);
@@ -194,7 +195,7 @@ namespace Main.com.lk.DbHelper
                 }
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
                 throw;

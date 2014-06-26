@@ -105,19 +105,26 @@
     </ApplicationDefinition>
     <Compile Include="com\lk\Ant\AntManage2.cs" />
     <Compile Include="com\lk\Entity\Device.cs" />
-    <Compile Include="com\lk\ui\DataCollection .xaml.cs">
-      <DependentUpon>DataCollection .xaml</DependentUpon>
+    <Compile Include="com\lk\ui\DataCollectionDialog .xaml.cs">
+      <DependentUpon>DataCollectionDialog .xaml</DependentUpon>
+    </Compile>
+    <Compile Include="com\lk\ui\ImportExcelDialog.xaml.cs">
+      <DependentUpon>ImportExcelDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="com\lk\ui\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="com\lk\ui\show.xaml.cs">
-      <DependentUpon>show.xaml</DependentUpon>
+    <Compile Include="com\lk\ui\showHideDialog.xaml.cs">
+      <DependentUpon>showHideDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="com\lk\util\MyPort.cs" />
     <Compile Include="com\lk\util\Utils.cs" />
     <Compile Include="com\lk\Wired\WiredData.cs" />
-    <Page Include="com\lk\ui\DataCollection .xaml">
+    <Page Include="com\lk\ui\DataCollectionDialog .xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="com\lk\ui\ImportExcelDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,7 +136,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="com\lk\Ant\AntManage.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -141,7 +147,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="com\lk\ui\show.xaml">
+    <Page Include="com\lk\ui\showHideDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -231,6 +237,7 @@
     <Resource Include="resource\image\bg_dataCollection.png" />
     <Resource Include="resource\image\bg_edit.png" />
     <Resource Include="resource\image\bg_h_view.png" />
+    <Resource Include="resource\image\bg_importExcel.png" />
     <Resource Include="resource\image\bg_jump.png" />
     <Resource Include="resource\image\bg_left.png" />
     <Resource Include="resource\image\bg_left_item.png" />
@@ -308,6 +315,7 @@
     <Resource Include="resource\image\line_left.png" />
     <Resource Include="resource\image\listView_bottom.png" />
     <Resource Include="resource\image\listView_top.png" />
+    <Resource Include="resource\image\pg_importExcel.png" />
     <Resource Include="resource\image\v_sview.png" />
   </ItemGroup>
   <ItemGroup>
@@ -316,10 +324,6 @@
     <Resource Include="resource\image\image_pc.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\C#\workspace\ANT_Managed_Library\ANT_Managed_Library\ANT_Managed_Library.csproj">
-      <Project>{16270052-0db5-41f9-8dd4-d1700e6e7281}</Project>
-      <Name>ANT_Managed_Library</Name>
-    </ProjectReference>
     <ProjectReference Include="D:\C#\workspace\BeiLiNu.Ui.Controls\BeiLiNu.Ui.Controls\BeiLiNu.Ui.Controls\BeiLiNu.Ui.Controls.csproj">
       <Project>{0208bc3a-2f98-40f7-8d42-dd44e87d9180}</Project>
       <Name>BeiLiNu.Ui.Controls</Name>
