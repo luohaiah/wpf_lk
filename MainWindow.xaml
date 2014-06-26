@@ -6,7 +6,7 @@
         xmlns:super="clr-namespace:BeiLiNu.Ui.Controls.WPF.Controls;assembly=BeiLiNu.Ui.Controls"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Name="window" x:Class="Main.MainWindow"
         Height="607" Width="1009"
-        WindowState="Normal" WindowStartupLocation="CenterScreen"  ResizeMode="CanMinimize" Activated="Window_Activated" Loaded="Window_Loaded" WindowStyle="None" Background="{x:Null}" AllowsTransparency="True" Closed="window_Closed" ShowInTaskbar="False"
+        WindowState="Normal" WindowStartupLocation="CenterScreen"  ResizeMode="CanMinimize" Activated="Window_Activated" Loaded="Window_Loaded" WindowStyle="None" Background="{x:Null}" AllowsTransparency="True" Closed="window_Closed" ShowInTaskbar="True"
 >
     <Window.Resources>
         <Style x:Key="LabelStyle1" TargetType="{x:Type Label}">

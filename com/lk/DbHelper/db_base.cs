@@ -73,8 +73,6 @@ namespace Main.com.lk.DbHelper
                         case 0:
                             col.Name = Constant.Constant.studentNum;//列的名称 
                             col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
-                            //  col.Type = DataTypeEnum.adInteger;//整数型这样写
-                            //  table.Columns.Append(col);
                             table.Columns.Append(col, DataTypeEnum.adVarChar, 500); //字符型这样写
                             break;
                         case 1:
@@ -89,111 +87,102 @@ namespace Main.com.lk.DbHelper
                             break;
                         case 3:
                             col.Name = Constant.Constant.height;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = false;
                             col.Type = DataTypeEnum.adDouble;
                             table.Columns.Append(col);
                             break;
                         case 4:
                             col.Name = Constant.Constant.height_score;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
-                            col.Type = DataTypeEnum.adInteger;
-                            table.Columns.Append(col);
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true ;
+                            table.Columns.Append(col, DataTypeEnum.adVarChar, 500);
                             break;
                         case 5:
                             col.Name = Constant.Constant.weight;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = false;
                             col.Type = DataTypeEnum.adDouble;
                             table.Columns.Append(col);
                             break;
                         case 6:
                             col.Name = Constant.Constant.weight_score;//列的名称
                             col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
-                            col.Type = DataTypeEnum.adInteger;
-                            table.Columns.Append(col);
+                            table.Columns.Append(col, DataTypeEnum.adVarChar, 500);
                             break;
                         case 7:
                             col.Name = Constant.Constant.jump;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = false;
                             col.Type = DataTypeEnum.adInteger;
                             table.Columns.Append(col);
                             break;
                         case 8:
                             col.Name = Constant.Constant.jump_score;//列的名称 
                             col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
-                            col.Type = DataTypeEnum.adInteger;
-                            table.Columns.Append(col);
+                            table.Columns.Append(col, DataTypeEnum.adVarChar, 500);
                             break;
                         case 9:
                             col.Name = Constant.Constant.vc;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = false;
                             col.Type = DataTypeEnum.adInteger;
                             table.Columns.Append(col);
                             break;
                         case 10:
                             col.Name = Constant.Constant.vc_score;//列的名称 
                             col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
-                            col.Type = DataTypeEnum.adInteger;
-                            table.Columns.Append(col);
+                            table.Columns.Append(col, DataTypeEnum.adVarChar, 500);
                             break;
                         case 11:
                             col.Name = Constant.Constant.tiqianqu;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = false;
                             col.Type = DataTypeEnum.adDouble;
                             table.Columns.Append(col);
                             break;
                         case 12:
                             col.Name = Constant.Constant.tiqianqu_score;//列的名称 
                             col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
-                            col.Type = DataTypeEnum.adInteger;
-                            table.Columns.Append(col);
+                            table.Columns.Append(col, DataTypeEnum.adVarChar, 500);
                             break;
                         case 13:
                             col.Name = Constant.Constant.sitUp;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = false;
                             col.Type = DataTypeEnum.adInteger;
                             table.Columns.Append(col);
                             break;
                         case 14:
                             col.Name = Constant.Constant.sitUp_score;//列的名称 
                             col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
-                            col.Type = DataTypeEnum.adInteger;
-                            table.Columns.Append(col);
+                            table.Columns.Append(col, DataTypeEnum.adVarChar, 500);
                             break;
                         case 15:
                             col.Name = Constant.Constant.pushUp;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value =false;
                             col.Type = DataTypeEnum.adInteger;
                             table.Columns.Append(col);
                             break;
                         case 16:
                             col.Name = Constant.Constant.pushUp_score;//列的名称 
                             col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
-                            col.Type = DataTypeEnum.adInteger;
-                            table.Columns.Append(col);
+                            table.Columns.Append(col, DataTypeEnum.adVarChar, 500);
                             break;
                         case 17:
                             col.Name = Constant.Constant.pullUp;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = false;
                             col.Type = DataTypeEnum.adInteger;
                             table.Columns.Append(col);
                             break;
                         case 18:
                             col.Name = Constant.Constant.pullUp_score;//列的名称 
                             col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
-                            col.Type = DataTypeEnum.adInteger;
-                            table.Columns.Append(col);
+                            table.Columns.Append(col, DataTypeEnum.adVarChar, 500);
                             break;
                         case 19:
                             col.Name = Constant.Constant.Shuttlerun;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = false;
                             col.Type = DataTypeEnum.adInteger;
                             table.Columns.Append(col);
                             break;
                         case 20:
                             col.Name = Constant.Constant.Shuttlerun_score;//列的名称 
                             col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
-                            col.Type = DataTypeEnum.adInteger;
-                            table.Columns.Append(col);
+                            table.Columns.Append(col, DataTypeEnum.adVarChar, 500);
                             break;
                         case 21:
                             col.Name = Constant.Constant.clname;//列的名称 
@@ -212,14 +201,14 @@ namespace Main.com.lk.DbHelper
                             break;
                         case 24:
                             col.Name = Constant.Constant.temp;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = false;
                             col.Type = DataTypeEnum.adInteger;
                             col.Properties["Default"].Value = 0;//设置字段默认值
                             table.Columns.Append(col);
                             break;
                         case 25:
                             col.Name = Constant.Constant.Run_fifty;//列的名称 
-                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = true;
+                            col.Properties["Jet OLEDB:Allow Zero Length"].Value = false;
                             col.Type = DataTypeEnum.adDouble;
                             table.Columns.Append(col);
                             break;

@@ -233,7 +233,7 @@ namespace Main.com.lk.util
         void com_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             bool checkSum_result;
-            //  Thread.Sleep(100);//需要休眠让缓冲区填满想要的数据，休眠时间要大于发送端的频率
+            Thread.Sleep(20);//需要休眠让缓冲区填满想要的数据，休眠时间要大于发送端的频率
             int n = sp.BytesToRead;//先记录下来，避免某种原因，人为的原因，操作几次之间时间长，缓存不一致  
             byte[] buf = new byte[n];//声明一个临时数组存储当前来的串口数据  
             sp.Read(buf, 0, n);//读取缓冲数据  

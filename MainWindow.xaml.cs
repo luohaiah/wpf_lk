@@ -31,6 +31,7 @@ namespace Main
         private DataView dv;
         private BackgroundWorker work;
         private int choose = 0;
+        private DataCollection Dc;
         public MainWindow(string username)
         {
             InitializeComponent();
@@ -171,8 +172,8 @@ namespace Main
         }
         private void import_data()
         {
-            hint hint = new Main.hint();
-            hint.ShowDialog();
+            //hint hint = new Main.hint();
+            //hint.ShowDialog();
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "Excel文件(*.xls)|*.xls";
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -239,11 +240,6 @@ namespace Main
             }
         }
 
-        //有线传输（串口通信）
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            new WiredManage(this).ShowDialog();
-        }
 
         private void Btn_prev_Click(object sender, RoutedEventArgs e)
         {
@@ -624,6 +620,7 @@ namespace Main
         private void showAndHideCol(object sender, RoutedEventArgs e)
         {
             Show showdialog = new Show(this);
+            showdialog.Owner = this;//设置对话框的父窗体，防止点击任务栏图标导致对话框位于主窗体的后面
             showdialog.ShowDialog();
         }
 
@@ -767,8 +764,12 @@ namespace Main
 
         private void data_caiji(object sender, RoutedEventArgs e)
         {
-            new DataCollection(this).ShowDialog();
+            Dc = new DataCollection(this);
+            Dc.Owner = this;
+            Dc.ShowDialog();
         }
+
+
     }
 
 

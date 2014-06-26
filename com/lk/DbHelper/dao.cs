@@ -13,7 +13,7 @@ using System.Windows;
 
 namespace Main.com.lk.DbHelper
 {
-  public class Dao
+    public class Dao
     {
         private static Dao dao;
         private Db_base db;
@@ -70,103 +70,124 @@ namespace Main.com.lk.DbHelper
                                     sql = "UPDATE LkTable SET " + Constant.Constant.name + " = '" + dt.Rows[i][Constant.Constant.name].ToString() + "'," + Constant.Constant.sex + " = '" + dt.Rows[i][Constant.Constant.sex].ToString() + "'," + Constant.Constant.clname + " = '" + dt.Rows[i][Constant.Constant.clname].ToString() + "'," + Constant.Constant.grade + " = '" + dt.Rows[i][Constant.Constant.grade].ToString() + "'," + Constant.Constant.temp + " = 1 WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
                                     db.SQLExecute(sql);
                                 }
-                                if (Constant.Constant.isCover)
-                                {
-                                    for (int y = 0; y < dt.Columns.Count; y++)
-                                    {
+                                //if (Constant.Constant.isCover)
+                                //{
+                                //    for (int y = 0; y < dt.Columns.Count; y++)
+                                //    {
 
-                                        if (Constant.Constant.height.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.height + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.height_score.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.height_score + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.weight.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.weight + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.weight_score.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.height_score + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.jump.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.jump + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.jump_score.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.jump_score + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.vc.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.vc + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.vc_score.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.vc_score + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.tiqianqu.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.tiqianqu + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.tiqianqu_score.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.tiqianqu_score + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.sitUp.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.sitUp + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.sitUp_score.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.sitUp_score + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.pushUp.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.pushUp + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.pushUp_score.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.pushUp_score + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.pullUp.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.pullUp + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.pullUp_score.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.pullUp_score + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.Shuttlerun.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.Shuttlerun + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                        else if (Constant.Constant.Shuttlerun_score.Equals(dt.Columns[y].ToString()))
-                                        {
-                                            sql = "UPDATE LkTable SET " + Constant.Constant.Shuttlerun_score + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
-                                            db.SQLExecute(sql);
-                                        }
-                                    }
-                                }
+                                //        if (Constant.Constant.height.Equals(dt.Columns[y].ToString()))
+                                //        {
+
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.height + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+
+                                //        }
+                                //        else if (Constant.Constant.height_score.Equals(dt.Columns[y].ToString()))
+                                //        {
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.height_score + " = '" + dt.Rows[i][y] + "' WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //        else if (Constant.Constant.weight.Equals(dt.Columns[y].ToString()))
+                                //        {
+
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.weight + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //        else if (Constant.Constant.weight_score.Equals(dt.Columns[y].ToString()))
+                                //        {
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.weight_score + " = '" + dt.Rows[i][y] + "' WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //        else if (Constant.Constant.jump.Equals(dt.Columns[y].ToString()))
+                                //        {
+
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.jump + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //        else if (Constant.Constant.jump_score.Equals(dt.Columns[y].ToString()))
+                                //        {
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.jump_score + " = '" + dt.Rows[i][y] + "' WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //        else if (Constant.Constant.vc.Equals(dt.Columns[y].ToString()))
+                                //        {
+
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.vc + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+
+                                //        }
+                                //        else if (Constant.Constant.vc_score.Equals(dt.Columns[y].ToString()))
+                                //        {
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.vc_score + " = '" + dt.Rows[i][y] + "' WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //        else if (Constant.Constant.tiqianqu.Equals(dt.Columns[y].ToString()))
+                                //        {
+
+
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.tiqianqu + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+
+                                //        }
+                                //        else if (Constant.Constant.tiqianqu_score.Equals(dt.Columns[y].ToString()))
+                                //        {
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.tiqianqu_score + " = '" + dt.Rows[i][y] + "' WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //        else if (Constant.Constant.sitUp.Equals(dt.Columns[y].ToString()))
+                                //        {
+
+
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.sitUp + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+
+                                //        }
+                                //        else if (Constant.Constant.sitUp_score.Equals(dt.Columns[y].ToString()))
+                                //        {
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.sitUp_score + " = '" + dt.Rows[i][y] + "' WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //        else if (Constant.Constant.pushUp.Equals(dt.Columns[y].ToString()))
+                                //        {
+
+
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.pushUp + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+
+                                //        }
+                                //        else if (Constant.Constant.pushUp_score.Equals(dt.Columns[y].ToString()))
+                                //        {
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.pushUp_score + " = '" + dt.Rows[i][y] + "' WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //        else if (Constant.Constant.pullUp.Equals(dt.Columns[y].ToString()))
+                                //        {
+
+
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.pullUp + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+
+                                //        }
+                                //        else if (Constant.Constant.pullUp_score.Equals(dt.Columns[y].ToString()))
+                                //        {
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.pullUp_score + " = '" + dt.Rows[i][y] + "' WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //        else if (Constant.Constant.Shuttlerun.Equals(dt.Columns[y].ToString()))
+                                //        {
+
+
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.Shuttlerun + " = " + dt.Rows[i][y] + " WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+
+                                //        }
+                                //        else if (Constant.Constant.Shuttlerun_score.Equals(dt.Columns[y].ToString()))
+                                //        {
+                                //            sql = "UPDATE LkTable SET " + Constant.Constant.Shuttlerun_score + " = '" + dt.Rows[i][y] + "' WHERE " + Constant.Constant.studentNum + " = '" + dt.Rows[i][Constant.Constant.studentNum] + "'";
+                                //            db.SQLExecute(sql);
+                                //        }
+                                //    }
+                                //}
                             }
                         }
                     }
