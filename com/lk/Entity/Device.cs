@@ -105,14 +105,15 @@ namespace Main.com.lk.Entity
                 }
                 else if ("BF".Equals(data[5].ToString("X2")))
                 {
+                    send_Cancel_share();
+                    Thread.Sleep(500);
                     window.Dispatcher.Invoke(new Action(delegate
                     {
                         window.dataGrid.ItemsSource = dao.get_table_all().DefaultView;
                     }));
-                    send_Cancel_share();
                     dic.Remove(address);
-                    port.list_address.Remove(address);
-                    port.dic_device.Remove(address);
+                    Constant.Constant.address = address;
+                    Constant.Constant.is_remove = true;
                 }
             }
         }
@@ -141,7 +142,7 @@ namespace Main.com.lk.Entity
         }
         private void send_Cancel_share()
         {
-            cmd = 0xD4;
+            cmd = 0xBF;
         }
     }
 }

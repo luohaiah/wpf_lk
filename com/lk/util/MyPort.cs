@@ -17,6 +17,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Linq;
 using System.Threading;
+using Main.com.lk.Constant;
 namespace Main.com.lk.util
 {
     public class MyPort
@@ -33,9 +34,9 @@ namespace Main.com.lk.util
         public const String COM8 = "com8";
         private MainWindow window;
         private bool is_has = false;
-        public List<string> list_address = new List<string>();
+        private List<string> list_address = new List<string>();
         private Dao dao;
-        public Dictionary<string, Device> dic_device = new Dictionary<string, Device>();
+        private Dictionary<string, Device> dic_device = new Dictionary<string, Device>();
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private int i = 0;
         private static MyPort myPort;
@@ -173,13 +174,13 @@ namespace Main.com.lk.util
 
         void timer_Tick(object sender, EventArgs e)
         {
-            //if (Constant.Constant.is_remove)
-            //{
-            //    Constant.Constant.is_remove = false;
-            //    list_address.Remove(Constant.Constant.address);
-            //    dic_device.Remove(Constant.Constant.address);
-            //    Constant.Constant.address = "";
-            //}
+            if (Constant.Constant.is_remove)
+            {
+                Constant.Constant.is_remove = false;
+                list_address.Remove(Constant.Constant.address);
+                dic_device.Remove(Constant.Constant.address);
+                Constant.Constant.address = "";
+            }
             int count = list_address.Count;
             if (count > 0)
             {
@@ -331,7 +332,7 @@ namespace Main.com.lk.util
             if (channelNum == 1)
             {
                 timer.Enabled = true;
-                timer.Interval = 16;
+                timer.Interval = Constant.Constant.timer_period;
                 timer.Tick += timer_Tick;
                 timer.Start();
             }

@@ -12,16 +12,16 @@ namespace Main.com.lk.Constant
         public const bool PairEnable = false;
         public const byte Devicetype = 127;
         public const byte Translatetype = 3;
-        public const ushort Period = 1024;
+        public const ushort Period = 1024;//1024
         public const byte Freq = 77;
         public static string Connectstr = "provider=Microsoft.Jet.OleDb.4.0;Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "DataBase\\" + "Lk.mdb;";
         public const ushort DeviceNum_share = 50;//50
         public const bool PairEnable_share = false;
         public const byte Devicetype_share = 126;
         public const byte Translatetype_share = 3;
-        public const ushort Period_share = 512;//512
+        public const ushort Period_share =512;//512
         public const byte Freq_share = 75;
-      //  public static bool isCover = false;
+        public const int timer_period = 20;//20
         public const string mdbName = "Lk.mdb";
         public const string table_Lk = "LkTable";
         public const string table_Project = "LkProject";
@@ -55,6 +55,8 @@ namespace Main.com.lk.Constant
         public const string username = "lingkang2014";
         public const string password = "2014";
         public static int select = 1; //用于区别是左侧是选择了全部还是临时（全部1，临时0）
+        public static bool is_remove = false;
+        public static string address = "";
       
     }
 }
